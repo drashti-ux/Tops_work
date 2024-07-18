@@ -1,0 +1,8 @@
+// Q1 :What is software? What is software engineering?
+
+Ans:
+software is collection of task, and each task is collection of instructions.
+Software is a set of instructions, data or programs used to operate computers and execute specific tasks. 
+
+Software engineering is the process of designing, creating, testing, and maintaining software.
+software engineering is all about carefully planning and building software to ensure it works well and meets user's needs.

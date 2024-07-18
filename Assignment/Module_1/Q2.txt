@@ -1,0 +1,8 @@
+//Q2.Explain types of software.
+Ans:
+Mainly two types of software:
+1.System Software: 
+System software is software that directly operates the computer hardware and provides the basic functionality to the users as well as to            the other software to operate smoothly.
+   ex: Windows, macOS, Linux
+2.Application software:Application software consists of programs designed to perform specific tasks.
+  ex:  

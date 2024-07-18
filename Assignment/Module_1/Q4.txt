@@ -1,0 +1,10 @@
+//Q4.What is DFD? Create a DFD diagram on Flipkart.
+Ans:
+DFD is the graphical representation of the flow of data or information.Dfd describes the path of data that completes the process.
+A data flow diagram is a graphical view of how data is processed in a system in terms of input and output.
+levels of DFD:
+0 level:
+It’s designed to be an abstraction view, showing the system as a single process with its relationship to external entities.
+1-Level DFD
+This level provides a more detailed view of the system by breaking down the major processes identified in the level 0 DFD into sub-processes. 
+Data flow Diagram:https://drive.google.com/file/d/1gufVAcDBeAzhshZv6X-2NTJyLdH1uZPN/view?usp=sharing
