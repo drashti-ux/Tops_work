@@ -33,7 +33,7 @@ int main(){
             break;
         }
         case 5:{
-            int mod = num1 + num2;
+            int mod = num1 % num2;
             printf("Modulo of %.2f and %.2f is %d",num1,num2,mod);
             break;
         }

@@ -1,4 +1,4 @@
-// Find circumference of Rectangle formula : C = 4 * a
+// Find circumference of Rectangle formula : C = 2*(l*w)
 
 #include <stdio.h>
 int main(){

@@ -12,14 +12,12 @@ int main() {
 
         int matrix1[row1][col1];
         int row_len1 = sizeof(matrix1)/sizeof(matrix1[0]);
-        printf("row size = %d\n",row_len1);
         int col_len1 = sizeof(matrix1[0])/sizeof(matrix1[0][0]);
-        printf("col size = %d\n",col_len1);
   
         for(int i = 0;i<row_len1;i++){
             for(int j = 0 ; j<col_len1;j++){
-                    printf("Enter element of %d row %d col: ",i+1,j+1);
-                    scanf("%d",&matrix1[i][j]);
+                printf("Enter element of %d row %d col: ",i+1,j+1);
+                scanf("%d",&matrix1[i][j]);
             }
         }
         printf("Matrix 1:\n");
@@ -38,9 +36,7 @@ int main() {
     
         int matrix2[row2][col2];
         int row_len2 = sizeof(matrix2)/sizeof(matrix2[0]);
-        printf("row size = %d\n",row_len2);
         int col_len2 = sizeof(matrix2[0])/sizeof(matrix2[0][0]);
-        printf("col size = %d\n",col_len2);
 
         for(int i = 0;i<row_len2;i++){
             for(int j = 0 ; j<col_len2;j++){
@@ -59,18 +55,11 @@ int main() {
     // for multiplication matrix:
     if(col_len1 == row_len2){
         int result_matrix[row_len1][col_len2];
-        int row_len3 =sizeof(result_matrix)/sizeof(result_matrix[0]);
-        printf("%d\n",row_len3);
-        int col_len3 =sizeof(result_matrix[0])/sizeof(result_matrix[0][0]);
-        printf("%d",col_len3);
-            for (int i = 0; i < row_len1; i++) {
-                    for (int j = 0; j < col_len2; j++) {
-                        result_matrix[i][j] = 0;
-                    }
-            }
+        
             for(int i = 0;i<row_len1;i++){
                 for(int j = 0;j<col_len2;j++){
                     for(int k = 0;k<col_len1;k++){
+                        result_matrix[i][j] = 0;
                         result_matrix[i][j] += matrix1[i][k]*matrix2[k][j];
                     }
                 } 

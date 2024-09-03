@@ -3,7 +3,9 @@
     upto 350                                                     @1.20 
     350 and above but less than 600                              @1.50 
     600 and above but less than 800                              @1.80    
-    800 and above                                                @2.00   */ 
+    800 and above                                                @2.00   
+
+If bill exceeds Rs. 800 then a surcharge of 18% will be charged and the minimum bill should be of Rs. 256/- */ 
 
 
 #include <stdio.h>
@@ -22,30 +24,32 @@ int main(){
 
     if(consumed_units > 0 && consumed_units < 350){
         charge_per_unit = 1.20;
-        printf("Units  : @%.2f",consumed_units);
-        float total = charge_per_unit * consumed_units; 
-        printf("total = @%.2f",total);
     }
     else if(consumed_units >= 350 && consumed_units < 600){
-        charge_per_unit = 1.50;
-        printf("Units  : @%.2f",consumed_units);
-        float total = charge_per_unit * consumed_units; 
-        printf("total = @%.2f",total);
+        charge_per_unit = 1.50;   
     }
     else if(consumed_units >= 600 && consumed_units < 800){
-        charge_per_unit = 1.80;
-        printf("Units  : @%.2f",consumed_units);
-        float total = charge_per_unit * consumed_units; 
-        printf("total = @%.2f",total);
+        charge_per_unit = 1.80;   
     }
     else if(consumed_units >= 800){
-        charge_per_unit = 2.00;
-        printf("Units  : @%.2f",consumed_units);
-        float total = charge_per_unit * consumed_units; 
-        printf("total = @%.2f",total);
+        charge_per_unit = 2.00;   
     }
     else{
         printf("Enter Valid units..");
     }
+
+        printf("Units  : @%.2f\n",consumed_units);
+        float bill = charge_per_unit * consumed_units; 
+        float surface_charge;
+        printf("Bill charge = %.2f \n",bill);
+        if(bill > 800){
+            surface_charge = (bill*18)/100;
+            printf("surface charge = %f\n",surface_charge);
+        }
+        else{
+            surface_charge = 0;
+            printf("surface charge = %.f\n",surface_charge);
+        }
+        printf("total = @%.2f",bill+surface_charge);
 
 }

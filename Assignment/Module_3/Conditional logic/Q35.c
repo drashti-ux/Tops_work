@@ -1,64 +1,21 @@
-#include <stdio.h>
+// Accept the input month number and print number of days in that month.
+
+#include<stdio.h>
 int main(){
-    char ch;
-    printf("Enter Any Character:");
-    scanf("%c",&ch);
-switch(ch){
-    case a:
-    {
-        printf("%c is Vowel",ch);
-        break;
+    int month;
+    
+    printf("Enter Month Number:");
+    scanf("%d",&month);
+    if((month>0 && month <8 && month %2 !=0) || (month >=8 && month <= 12 && month %2 == 0)){
+        printf("in This month there Are 31 days \n");
     }
-    case e:
-    {
-        printf("%c is Vowel",ch);
-        break;
+    else if(month == 2){
+        printf("in this month there Are 28 days \n");
     }
-    case i:
-    {
-        printf("%c is Vowel",ch);
-        break;
+    else if(month < 0 || month > 12){
+        printf("Enter valid month \n");
     }
-    case o:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case u:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case A:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case E:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case I:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case O:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    case U:
-    {
-        printf("%c is Vowel",ch);
-        break;
-    }
-    default:{
-        printf("%c is Consonant",ch);
-        break;
+    else {
+        printf("in this month there are 30 days \n");
     }
 }
-}
-
-

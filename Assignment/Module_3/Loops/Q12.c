@@ -3,7 +3,7 @@
 
 // using for loop
 #include <stdio.h>
-
+#include <math.h>
 int main() {
     int num;
     int real_num;
@@ -14,7 +14,7 @@ int main() {
     int summation = 0;
     for(num;num != 0;num=num/10){
        int reminder = num%10;
-        cube = reminder * reminder * reminder; 
+        cube = pow(reminder,3);
         summation += cube; 
     }
     if(summation == real_num){

@@ -8,10 +8,10 @@ int main(){
     printf("Enter Month Number:");
     scanf("%d",&month);
     if((month>0 && month <8 && month %2 !=0) || (month >=8 && month <= 12 && month %2 == 0)){
-        printf("in This month there is 31 days \n");
+        printf("in This month there Are 31 days \n");
     }
     else if(month == 2){
-        printf("in this month there is 28 days \n");
+        printf("in this month there Are 28 days \n");
     }
     else if(month < 0 || month > 12){
         printf("Enter valid month \n");
