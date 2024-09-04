@@ -136,3 +136,43 @@ int main(){
 // 28 27 26 25 24 23 22 21 20 19
  
 
+#include <stdio.h>
+int main(){
+    int size;
+    int col = 0,row = 0;
+    printf("Enter Size:");
+    scanf("%d",&size);
+    int end = size -1;
+    int num = 1;
+    int arr[size][size];
+    for(row=0;row<=size/2;row++,end--){
+    //for left to right
+    for(col = row;col<=end;col++){
+        arr[row][col] = num;
+        num++;
+    }
+    // for top to bottom
+    for(col = row+1;col<=end;col++){
+        arr[col][end] = num;
+        num++;
+    }
+    // for right to left
+    for(col = end-1;col>=row;col--){
+        arr[end][col] = num;
+        num++;
+    }
+    // for bottom to top
+    for(col = end -1;col>row;col--){
+        arr[col][row] = num;
+        num++;
+    }
+    }
+    
+    // for(col=end-1;col)
+    for(row = 0;row < size ; row++){
+        for(col = 0;col<size ; col++){
+            printf("%d\t",arr[row][col]);
+        }
+        printf("\n");
+    }
+}

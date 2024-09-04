@@ -5,16 +5,25 @@
 int main(){
     char str[50];
     printf("Enter String: ");
-    fgets(str,sizeof(str),stdin);
+    scanf("%s",str);
     int len = strlen(str);
+    // printf("%d\n",len);
     char rev[50];
     int j = 0;
-    for(int i = 0 ; i < len-2;i++){
+    for(int i = len-1 ; i >= 0;i--){
         rev[j]=str[i];
         j++;
     }
+     rev[j] = '\0';
     int rev_len = strlen(rev);
-    for(int j = 0; j<rev_len;j++){
-        printf("%s",rev);
+    printf("Reverse : %s\n",rev);
+    
+    int result = strcmp(str, rev);
+    // printf("%d",result);
+    if(result == 0){
+         printf("Palindrom");
+    }
+    else{
+        printf("Not Palindrom");
     }
 }

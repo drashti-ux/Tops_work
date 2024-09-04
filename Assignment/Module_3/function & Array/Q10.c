@@ -1,8 +1,5 @@
 // WAP to perform Palindrome number using for loop and function
 
-// Online C compiler to run C program online
-// WAP to perform Palindrome number using for loop and function
-
 #include <stdio.h>
 
 int main(){

@@ -1,10 +1,13 @@
-#include<stdio.h>
-#include<math.h>
+// WAP to accept 5 students name and store it in array 
+#include <stdio.h>
 int main(){
-    int num;
-    printf("enter number:");
-    scanf("%d",&num);
-    int n_power2 = pow(num,2);
-    int n_power3 = pow(num,3);
-    printf("first three powers of %d is %d,%d,%d",num,num,n_power2,n_power3);
+    char std_name[5][100];
+    int i;
+    for( i = 0; i<5; i++){
+        printf("Enter Name %d:",i+1);
+        scanf("%s",&std_name[i]);
+    }
+    for( i = 0;i<5;i++){
+        printf("%d %s\n",i+1,std_name[i]);
+    }
 }
