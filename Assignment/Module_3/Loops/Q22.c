@@ -4,13 +4,17 @@
 int main(){
     int num[3];
     int rev[3] = {0,0,0};
-    for(int i = 0 ;i < 3 ; i++){
+    int i = 0;
+    while(i<3){
         printf("Enter Number %d : ",i+1);
         scanf("%d",&num[i]);
-        for(int j = num[i];num[i]>0;num[i]/10){
-            int reminder = num[i]%10;
+        int j = num[i];
+        while(j>0){
+            int reminder = j%10;
             rev[i] = (rev[i]*10)+reminder;
+            j /= 10; 
         }
-        printf("Reverse %d = %d",i+1,rev[i]);
+        printf("Reverse %d = %d\n",i+1,rev[i]);
+        i++;
     }
 }

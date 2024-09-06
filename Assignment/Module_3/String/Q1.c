@@ -1,6 +1,5 @@
 // Write a program in C to find the length of a string without using library functions
 #include <stdio.h>
-#include <string.h>
 
 int main(){
     char str[50];
