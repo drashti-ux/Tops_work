@@ -1,0 +1,16 @@
+What is the difference between OOP and POP?
+    POP(Procedural-Oriented Programming):
+    1.POP is a programming paradigm where the program is divided into procedures (functions) that operate on data.
+    2.Programs are divided into functions or procedures, which perform operations on the data. The functions are separate from the data they operate on.
+    3.Functions can be reused, but it’s harder to reuse code since there’s no inheritance or polymorphism.
+    4.Top-down approach
+    5.Data is less secure, as functions can directly access and modify data without restriction.
+
+
+    OOP(Object-Oriented Programming):
+    1.OOP organizes programs around objects and data rather than actions and logic.
+      It uses concepts like classes, objects, inheritance, polymorphism, and encapsulation to design modular and reusable code.
+    2.Programs are divided into objects, which are instances of classes. Each object contains both data and methods   that operate on the data.
+    3.Inheritance and polymorphism support high levels of code reusability.
+    4.Bottom-up approach
+    5.Encapsulation provides data security by restricting access to data through private and protected access modifiers.
