@@ -21,18 +21,19 @@ class Student : protected Person{
         int total_marks;
         int total_of_subjects;
     
-    Student(){
+    void s_marks(){
         cout<<"Enter Your Total Marks: ";
         cin>>total_marks;
         cout<<"Enter All Subjects Total Marks :";
         cin>>total_of_subjects;
     }
     void calculate_percentage(){
-        percentage = (total_marks/total_of_subjects)*100;
+        percentage = ((float)total_marks/total_of_subjects)*100;
     } 
     void display(){
-        cout<<"Name: "<<name<<endl;
-        cout<<"Age :"<<age<<endl;
+        calculate_percentage();
+        cout<<"Student Name: "<<name<<endl;
+        cout<<"Student Age :"<<age<<endl;
         cout<<"Your Total Marks: "<<total_marks<<endl;
         cout<<"Your Percentage : "<<percentage<<endl;
     }
@@ -40,7 +41,27 @@ class Student : protected Person{
 class Teacher : protected Person{
     public:
         float salary;
+    
+    void t_salary(){
+        cout<<"Enter Your Salary :";
+        cin>>salary;
+    }
+    void display(){
+        cout<<"Teacher Name: "<<name<<endl;
+        cout<<"Teacher Age: "<<age<<endl;
+        cout<<"Salary : "<<salary<<endl;
+    }
 };
 int main(){
-
+            cout<<"Enter Student Detail"<<endl;
+            Student s1;
+            s1.s_marks();
+            cout<<endl;
+            cout<<"Enter Teacher Detail "<<endl;
+            Teacher t1;
+            t1.t_salary();
+            cout<<"\nStudent Detail:"<<endl;
+            s1.display();
+            cout<<"\nTeacher Detail "<<endl;
+            t1.display();
 }
