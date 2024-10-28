@@ -1,0 +1,5 @@
+What do you understand By Database?
+ans:
+    A database is an organized collection of structured information or data that is stored and accessed electronically. 
+    Databases are designed to manage, store, and retrieve large amounts of data efficiently. 
+    They can be structured to allow data to be organized in rows and columns (as in relational databases), stored in a more flexible format (as in NoSQL databases), or optimized for different use cases like document storage, graph-based data, etc.

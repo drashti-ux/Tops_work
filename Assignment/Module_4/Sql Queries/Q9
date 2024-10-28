@@ -1,0 +1,13 @@
+Q9.Select first_name, incentive amount from employee and incentives table forthose employees who have incentives and incentive amount greater than 3000
+
+
+    mysql> select first_name,incentve_amount from employee inner join incentive on employee.employee_id = incentive.employee_ref_id where incentve_amount >3000;
+    +------------+-----------------+
+    | first_name | incentve_amount |
+    +------------+-----------------+
+    | John       |            5000 |
+    | Roy        |            4000 |
+    | John       |            4500 |
+    | Michael    |            3500 |
+    +------------+-----------------+
+    4 rows in set (0.00 sec)

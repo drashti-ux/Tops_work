@@ -1,0 +1,32 @@
+Q18.Write a SQL statement that displays all the information about all salespeople
+
+    mysql> create table salespeople(salesman_id int primary key,name varchar(20),city varchar(20),commision decimal(10,2));
+    Query OK, 0 rows affected (0.02 sec)
+
+    mysql> describe salespeople;
+    +-------------+---------------+------+-----+---------+-------+
+    | Field       | Type          | Null | Key | Default | Extra |
+    +-------------+---------------+------+-----+---------+-------+
+    | salesman_id | int           | NO   | PRI | NULL    |       |
+    | name        | varchar(20)   | YES  |     | NULL    |       |
+    | city        | varchar(20)   | YES  |     | NULL    |       |
+    | commision   | decimal(10,2) | YES  |     | NULL    |       |
+    +-------------+---------------+------+-----+---------+-------+
+    4 rows in set (0.00 sec)
+
+    mysql> insert into salespeople values(5001,"James Hoog","New york",0.15),(5002,"Nail Knite","Paris",0.13),(5005,"Pit Ales","London",0.11),(5006,"Mc Lyon","Paris",0.14),(5007,"Paul Adam","Rome",0.13),(5003,"Lauson Hen","San Jose",0.12);
+    Query OK, 6 rows affected (0.01 sec)
+    Records: 6  Duplicates: 0  Warnings: 0
+
+    mysql> select * from salespeople;
+    +-------------+------------+----------+-----------+
+    | salesman_id | name       | city     | commision |
+    +-------------+------------+----------+-----------+
+    |        5001 | James Hoog | New york |      0.15 |
+    |        5002 | Nail Knite | Paris    |      0.13 |
+    |        5003 | Lauson Hen | San Jose |      0.12 |
+    |        5005 | Pit Ales   | London   |      0.11 |
+    |        5006 | Mc Lyon    | Paris    |      0.14 |
+    |        5007 | Paul Adam  | Rome     |      0.13 |
+    +-------------+------------+----------+-----------+
+    6 rows in set (0.00 sec)

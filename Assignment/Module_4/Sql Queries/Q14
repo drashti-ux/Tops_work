@@ -1,0 +1,4 @@
+Q14.Names and cities of all salespeople in London with commission above 0.12
+
+mysql> select Sname,City from salesperson where city = "London" and comm>0.12;
+Empty set (0.02 sec)

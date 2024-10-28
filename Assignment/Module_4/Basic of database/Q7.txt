@@ -1,0 +1,15 @@
+Q7.What is DML Compiler in SQL? 
+Ans:
+    A DML (Data Manipulation Language) Compiler in SQL is a component of the Database Management System (DBMS) that processes DML commands. DML commands are used for managing data within database tables, including operations like inserting, updating, deleting, and retrieving data. The DML Compiler translates high-level DML commands into a low-level language that the DBMS's query engine can execute.
+
+    DML Commands:
+    1.SELECT: Retrieves specific data from one or more tables.
+    2.INSERT: Adds new rows of data to a table.
+    3.UPDATE: Modifies existing data in a table.
+    4.DELETE: Removes data from a table.
+
+    Process Flow of a DDL Command Execution:
+    1.Parsing: The interpreter parses the DDL command to understand what is requested (e.g., creating a new table).
+    2.Syntax and Semantics Checking: It checks for syntax correctness and ensures that the command logically fits within the existing database structure.
+    3.Execution: If the command is valid, the interpreter carries out the changes in the database.    
+    Metadata Update: Finally, the metadata is updated to reflect the new database structure.

@@ -1,0 +1,35 @@
+Q16.All salespeople with commission between 0.10 and 0.12. (Boundary vluesshould be excluded).
+
+mysql> select * from salesperson where comm > 0.10 and comm < 0.12;
++------+---------+----------+------+
+| Sno  | Sname   | city     | Comm |
++------+---------+----------+------+
+| 1001 | Peel    | London   | 0.12 |
+| 1003 | Axelrod | New York |  0.1 |
+| 1004 | Motika  | London   | 0.11 |
++------+---------+----------+------+
+3 rows in set (0.00 sec)
+
+mysql> alter table salesperson modify comm decimal(10,2);
+Query OK, 5 rows affected, 5 warnings (0.08 sec)
+Records: 5  Duplicates: 0  Warnings: 5
+
+mysql> select * from salesperson;
++------+---------+-----------+------+
+| Sno  | Sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1003 | Axelrod | New York  | 0.10 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rafkin  | Barcelona | 0.15 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from salesperson where comm > 0.10 and comm < 0.12;
++------+--------+--------+------+
+| Sno  | Sname  | city   | comm |
++------+--------+--------+------+
+| 1004 | Motika | London | 0.11 |
++------+--------+--------+------+
+1 row in set (0.00 sec)

@@ -1,0 +1,47 @@
+Q19.From the following table, write a SQL query to find orders that are delivered by a salesperson with ID. 5001. Return ord_no, ord_date, purch_amt.
+
+mysql> create table orders(order_no int primary key,purch_amt decimal(10,2),order_date date,customer_id int,salesman_id int,foreign key(salesman_id) references salespeople(salesman_id));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe orders;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| order_no    | int           | NO   | PRI | NULL    |       |
+| purch_amt   | decimal(10,2) | YES  |     | NULL    |       |
+| order_date  | date          | YES  |     | NULL    |       |
+| customer_id | int           | YES  |     | NULL    |       |
+| salesman_id | int           | YES  | MUL | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into orders values(70001,150.5,'2012-10-05',3005,5002),(70009,270.65,'2012-09-10',3001,5005),(70002,65.26,'2012-10-05',3002,5001),(70004,110.5,'2012-08-17',3009,5003),(7007,948.5,'2012-09-10',3005,5002),(70005,2400.6,'2012-01-27',3007,5001),(70008,5760,'2012-09-10',3002,5001),(70010,1983.43,'2012-10-10',3004,5006),(70003,2480.4,'2012-10-10',3009,5003),(70012,250.45,'2012-06-27',3008,5002);
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from orders;
++----------+-----------+------------+-------------+-------------+
+| order_no | purch_amt | order_date | customer_id | salesman_id |
++----------+-----------+------------+-------------+-------------+
+|     7007 |    948.50 | 2012-09-10 |        3005 |        5002 |
+|    70001 |    150.50 | 2012-10-05 |        3005 |        5002 |
+|    70002 |     65.26 | 2012-10-05 |        3002 |        5001 |
+|    70003 |   2480.40 | 2012-10-10 |        3009 |        5003 |
+|    70004 |    110.50 | 2012-08-17 |        3009 |        5003 |
+|    70005 |   2400.60 | 2012-01-27 |        3007 |        5001 |
+|    70008 |   5760.00 | 2012-09-10 |        3002 |        5001 |
+|    70009 |    270.65 | 2012-09-10 |        3001 |        5005 |
+|    70010 |   1983.43 | 2012-10-10 |        3004 |        5006 |
+|    70012 |    250.45 | 2012-06-27 |        3008 |        5002 |
++----------+-----------+------------+-------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> select order_no,order_date,purch_amt from orders where salesman_id =5001;
++----------+------------+-----------+
+| order_no | order_date | purch_amt |
++----------+------------+-----------+
+|    70002 | 2012-10-05 |     65.26 |
+|    70005 | 2012-01-27 |   2400.60 |
+|    70008 | 2012-09-10 |   5760.00 |
++----------+------------+-----------+
+3 rows in set (0.00 sec)

@@ -1,0 +1,30 @@
+What is SQL Key Constraints writing an Example of SQL Key Constraints.
+Ans:
+    SQL Key Constraints are rules applied to database columns to ensure the accuracy and integrity of the data. 
+    They define relationships between tables and enforce restrictions on the data that can be entered into specific columns. The primary SQL key constraints are Primary Key, Foreign Key, Unique Key, Not Null, and Check constraints.
+
+    1.Primary Key Constraint:
+
+    Uniquely identifies each row in a table.
+    Does not allow NULL values.
+    Each table can have only one primary key, which may consist of one or multiple columns (composite key).
+
+    2.Foreign Key Constraint:
+
+    Enforces a link between two tables by ensuring that the value in one table (child) corresponds to a valid entry in another table (parent).
+    Helps maintain referential integrity.
+
+    3.Unique Key Constraint:
+
+    Ensures all values in a column or a group of columns are unique across the table.
+    Unlike primary keys, a table can have multiple unique constraints, and they can allow NULL values (only one per unique column).
+
+    4.Not Null Constraint:
+
+    Ensures a column cannot have a NULL value.
+    Typically used for columns where data entry is required.
+
+    5.Check Constraint:
+
+    Restricts the values that can be placed in a column according to a specified condition.
+    Ensures data integrity by enforcing specific rules.

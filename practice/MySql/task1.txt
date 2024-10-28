@@ -1,0 +1,64 @@
+mysql> create database task;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use task;
+Database changed
+mysql> create table student (id int primary key,first_name varchar(128),last_name varchar(128),email varchar(128) unique key,birth_date date,start_date date);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> describe student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int          | NO   | PRI | NULL    |       |
+| first_name | varchar(128) | YES  |     | NULL    |       |
+| last_name  | varchar(128) | YES  |     | NULL    |       |
+| email      | varchar(128) | YES  | UNI | NULL    |       |
+| birth_date | date         | YES  |     | NULL    |       |
+| start_date | date         | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> create table lecturer (id int primary key,first_name varchar(128),last_name varchar(128),degree varchar(32),email varchar(128) unique key);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe lecturer;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int          | NO   | PRI | NULL    |       |
+| first_name | varchar(128) | YES  |     | NULL    |       |
+| last_name  | varchar(128) | YES  |     | NULL    |       |
+| degree     | varchar(32)  | YES  |     | NULL    |       |
+| email      | varchar(128) | YES  | UNI | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table acedemic_semester (id int primary key,calender_year int,term varchar(128),start_date date,end_date date);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe acedemic_semester;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| id            | int          | NO   | PRI | NULL    |       |
+| calender_year | int          | YES  |     | NULL    |       |
+| term          | varchar(128) | YES  |     | NULL    |       |
+| start_date    | date         | YES  |     | NULL    |       |
+| end_date      | date         | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table cource_edition(id int primary key,cource_id int,foreign key (cource_id) references student(id),acedemic_semester_id int, foreign key (acedemic_semester_id) references acedemic_semester(id),lecturer_id int, foreign key (lecturer_id) references lecturer(id));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe cource_edition;
++----------------------+------+------+-----+---------+-------+
+| Field                | Type | Null | Key | Default | Extra |
++----------------------+------+------+-----+---------+-------+
+| id                   | int  | NO   | PRI | NULL    |       |
+| cource_id            | int  | YES  | MUL | NULL    |       |
+| acedemic_semester_id | int  | YES  | MUL | NULL    |       |
+| lecturer_id          | int  | YES  | MUL | NULL    |       |
++----------------------+------+------+-----+---------+-------+
+4 rows in set (0.00 sec)

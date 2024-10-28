@@ -1,0 +1,11 @@
+Q15.All salespeople either in Barcelona or in London
+
+mysql> select * from salesperson where city in ("London","Barcelona");
++------+--------+-----------+------+
+| Sno  | Sname  | city      | Comm |
++------+--------+-----------+------+
+| 1001 | Peel   | London    | 0.12 |
+| 1004 | Motika | London    | 0.11 |
+| 1007 | Rafkin | Barcelona | 0.15 |
++------+--------+-----------+------+
+3 rows in set (0.00 sec)

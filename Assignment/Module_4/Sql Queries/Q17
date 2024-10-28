@@ -1,0 +1,12 @@
+Q17.All customers excluding those with rating <= 100 unless they are located inRome
+
+mysql> select * from customer where not rating <= 100 or city ="Roe";
++-----+----------+----------+--------+------+
+| CNM | CName    | city     | Rating | SNo  |
++-----+----------+----------+--------+------+
+| 202 | Giovanne | Roe      |    200 | 1003 |
+| 203 | Liu      | San jose |    300 | 1002 |
+| 206 | Clemens  | London   |    300 | 1007 |
+| 207 | Pereira  | Roe      |    100 | 1004 |
++-----+----------+----------+--------+------+
+4 rows in set (0.00 sec)

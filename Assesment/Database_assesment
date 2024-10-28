@@ -1,0 +1,178 @@
+Consider three table named as city, customer and country 
+
+mysql> create table country(id int primary key,country_name varchar(20),country_name_eng varchar(50),country_code varchar(5));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe country;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| id               | int         | NO   | PRI | NULL    |       |
+| country_name     | varchar(20) | YES  |     | NULL    |       |
+| country_name_eng | varchar(50) | YES  |     | NULL    |       |
+| country_code     | varchar(5)  | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into country values(1,"Deutschland","Germany","DEU"),(2,"Srbija","Serbia","SRB"),(3,"Hrvatska","Croatia","HRV");
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into country values(4,"United States Of America","United State Of America","USA"),(5,"Polska","Poland","POL"),(6,"Espana","Spain","ESP"),(7,"Rossiya","Russia","RUS");
+ERROR 1406 (22001): Data too long for column 'country_name' at row 1
+mysql> alter table country modify country_name varchar(50);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into country values(4,"United States Of America","United State Of America","USA"),(5,"Polska","Poland","POL"),(6,"Espana","Spain","ESP"),(7,"Rossiya","Russia","RUS");
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from country;
++----+--------------------------+-------------------------+--------------+
+| id | country_name             | country_name_eng        | country_code |
++----+--------------------------+-------------------------+--------------+
+|  1 | Deutschland              | Germany                 | DEU          |
+|  2 | Srbija                   | Serbia                  | SRB          |
+|  3 | Hrvatska                 | Croatia                 | HRV          |
+|  4 | United States Of America | United State Of America | USA          |
+|  5 | Polska                   | Poland                  | POL          |
+|  6 | Espana                   | Spain                   | ESP          |
+|  7 | Rossiya                  | Russia                  | RUS          |
++----+--------------------------+-------------------------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> create table City (id int primary key,City_name varchar(20),lat decimal(10,6),`Long` decimal(10,6),country_id int,foreign key(country_id) referen
+ces country(id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe city;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| id         | int           | NO   | PRI | NULL    |       |
+| City_name  | varchar(20)   | YES  |     | NULL    |       |
+| lat        | decimal(10,6) | YES  |     | NULL    |       |
+| Long       | decimal(10,6) | YES  |     | NULL    |       |
+| country_id | int           | YES  | MUL | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into city values(1,"Berlin",52.5200008,13.404984,1),(2,"Belgra
+de",44.787197,20.457273,2),(3,"Zargreb",45.815399,15.966568,3),(4,"New York"
+,40.730610,-73.935242,4),(5,"Los Angeles",34.052235,-118.243683,4),(6,"Warsa
+w",52.237049,21.017532,5);
+Query OK, 6 rows affected, 1 warning (0.03 sec)
+Records: 6  Duplicates: 0  Warnings: 1
+
+mysql> select * from city;
++----+-------------+-----------+-------------+------------+
+| id | City_name   | lat       | Long        | country_id |
++----+-------------+-----------+-------------+------------+
+|  1 | Berlin      | 52.520001 |   13.404984 |          1 |
+|  2 | Belgrade    | 44.787197 |   20.457273 |          2 |
+|  3 | Zargreb     | 45.815399 |   15.966568 |          3 |
+|  4 | New York    | 40.730610 |  -73.935242 |          4 |
+|  5 | Los Angeles | 34.052235 | -118.243683 |          4 |
+|  6 | Warsaw      | 52.237049 |   21.017532 |          5 |
++----+-------------+-----------+-------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> create table customer(id int primary key,customer_name varchar(20),ci
+ty_id int,foreign key(city_id) references city(id),customer_address varchar(
+50),next_call_date date,ts_inserted datetime(3));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> describe customer;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| id               | int         | NO   | PRI | NULL    |       |
+| customer_name    | varchar(20) | YES  |     | NULL    |       |
+| city_id          | int         | YES  | MUL | NULL    |       |
+| customer_address | varchar(50) | YES  |     | NULL    |       |
+| next_call_date   | date        | YES  |     | NULL    |       |
+| ts_inserted      | datetime(3) | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> insert into customer values(1,"JeWelry Store",4,"Long Street 120","20
+20-01-21","2020-01-09 14:01:20.000");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into customer values(2,"Bakery",1,"Kurfustendamm 25","2020-02-
+21","2020-01-09 17:52:15.000");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into customer values(3,"Cafe",1,"Tauentzienstrabe 44","2020-01-21","2020-01-10 08:02:49.000");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customer values(4,"Restaurant",3,"Ulica lipa 15","2020-01
+-21","2020-01-10 09:20:21.000");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from customer;
++----+---------------+---------+---------------------+----------------+-------------------------+
+| id | customer_name | city_id | customer_address    | next_call_date | ts_inserted             |
++----+---------------+---------+---------------------+----------------+-------------------------+
+|  1 | JeWelry Store |       4 | Long Street 120     | 2020-01-21     | 2020-01-09 14:01:20.000 |
+|  2 | Bakery        |       1 | Kurfustendamm 25    | 2020-02-21     | 2020-01-09 17:52:15.000 |
+|  3 | Cafe          |       1 | Tauentzienstrabe 44 | 2020-01-21     | 2020-01-10 08:02:49.000 |
+|  4 | Restaurant    |       3 | Ulica lipa 15       | 2020-01-21     | 2020-01-10 09:20:21.000 |
++----+---------------+---------+---------------------+----------------+-------------------------+
+4 rows in set (0.00 sec)
+
+-- task 1 : (join multiple tables using left join)
+-- List all Countries and customers related to these countries.
+
+    mysql> select country_name,customer_name from country left join city on country.id = city.country_id left join customer on city.id = customer.city_id;
+    +--------------------------+---------------+
+    | country_name             | customer_name |
+    +--------------------------+---------------+
+    | Deutschland              | Bakery        |
+    | Deutschland              | Cafe          |
+    | Srbija                   | NULL          |
+    | Hrvatska                 | Restaurant    |
+    | United States Of America | JeWelry Store |
+    | United States Of America | NULL          |
+    | Polska                   | NULL          |
+    | Espana                   | NULL          |
+    | Rossiya                  | NULL          |
+    +--------------------------+---------------+
+    9 rows in set (0.00 sec)
+
+-- For each country displaying its name in English, the name of the city customer is located in as well as the name of the customer.
+
+    mysql> select country_name,city_name,customer_name from country left join city on country.id = city.id left join customer on customer.city_id = city.id;
+    +--------------------------+-------------+---------------+
+    | country_name             | city_name   | customer_name |
+    +--------------------------+-------------+---------------+
+    | Deutschland              | Berlin      | Bakery        |
+    | Deutschland              | Berlin      | Cafe          |
+    | Srbija                   | Belgrade    | NULL          |
+    | Hrvatska                 | Zargreb     | Restaurant    |
+    | United States Of America | New York    | JeWelry Store |
+    | Polska                   | Los Angeles | NULL          |
+    | Espana                   | Warsaw      | NULL          |
+    | Rossiya                  | NULL        | NULL          |
+    +--------------------------+-------------+---------------+
+    8 rows in set (0.00 sec)
+
+-- Task : 2 (join multiple tables using both left and inner join)
+--Return the list of all countries that have pairs(exclude countries which are not referenced by any city). For such pairs return all customers.Return even pairs of not having a single customer
+
+    mysql> select country_name,city_name,customer_name from country inner join c
+    ity on country.id = city.country_id left join customer on city.id = customer
+    .city_id;
+    +--------------------------+-------------+---------------+
+    | country_name             | city_name   | customer_name |
+    +--------------------------+-------------+---------------+
+    | Deutschland              | Berlin      | Bakery        |
+    | Deutschland              | Berlin      | Cafe          |
+    | Srbija                   | Belgrade    | NULL          |
+    | Hrvatska                 | Zargreb     | Restaurant    |
+    | United States Of America | New York    | JeWelry Store |
+    | United States Of America | Los Angeles | NULL          |
+    | Polska                   | Warsaw      | NULL          |
+    +--------------------------+-------------+---------------+
+    7 rows in set (0.00 sec)

@@ -1,0 +1,82 @@
+Q11.Create table given below: Salesperson and Customer  
+
+mysql> use assignment;
+Database changed
+
+mysql> create table salesperson(Sno int primary key,Sname varchar(20),city varchar(20),Comm float);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe salesperson;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Sno   | int         | NO   | PRI | NULL    |       |
+| Sname | varchar(20) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | NULL    |       |
+| Comm  | float       | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into salesperson values(1001,"Peel","London",0.12),(1002,"Serres","San Jose",0.13),(10004,"Motika","London",0.11),(1007,"Rafkin","Barcelona",0.15),(1003,"Axelrod","New York",0.1);
+Query OK, 5 rows affected (0.03 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from salesperson;
++-------+---------+-----------+------+
+| Sno   | Sname   | city      | Comm |
++-------+---------+-----------+------+
+|  1001 | Peel    | London    | 0.12 |
+|  1002 | Serres  | San Jose  | 0.13 |
+|  1003 | Axelrod | New York  |  0.1 |
+|  1007 | Rafkin  | Barcelona | 0.15 |
+| 10004 | Motika  | London    | 0.11 |
++-------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> create table customer(CNM int primary key,CName varchar(20),city varchar(20),Rating int,SNo int,foreign key(SNo) references salesperson(sno));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> update salesperson set SNo = 1004 where Sname = "motika";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from salesperson;
++------+---------+-----------+------+
+| Sno  | Sname   | city      | Comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1003 | Axelrod | New York  |  0.1 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rafkin  | Barcelona | 0.15 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> describe customer;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| CNM    | int         | NO   | PRI | NULL    |       |
+| CName  | varchar(20) | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
+| Rating | int         | YES  |     | NULL    |       |
+| SNo    | int         | YES  | MUL | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into customer values(201,"Hoffman","London",100,1001),(202,"Giovanne","Roe",200,1003),(203,"Liu","San jose",300,1002),(204,"Grass","Barcelona",100,1002),(206,"Clemens","London",300,1007),(207,"Pereira","Roe",100,1004);
+Query OK, 6 rows affected (0.03 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from customer;
++-----+----------+-----------+--------+------+
+| CNM | CName    | city      | Rating | SNo  |
++-----+----------+-----------+--------+------+
+| 201 | Hoffman  | London    |    100 | 1001 |
+| 202 | Giovanne | Roe       |    200 | 1003 |
+| 203 | Liu      | San jose  |    300 | 1002 |
+| 204 | Grass    | Barcelona |    100 | 1002 |
+| 206 | Clemens  | London    |    300 | 1007 |
+| 207 | Pereira  | Roe       |    100 | 1004 |
++-----+----------+-----------+--------+------+
+6 rows in set (0.00 sec)

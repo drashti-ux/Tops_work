@@ -1,0 +1,16 @@
+create function which takes input as age and returns birth year
+
+    delimiter //
+    create function birth_year(age int)
+    returns int deterministic
+    begin
+    declare current_year int;
+    declare bir_year int;
+    set current_year = year(curdate());
+    set bir_year = current_year - age;
+    return bir_year;
+    end //
+    delimiter ;
+
+calling function
+select birth_year(24);
