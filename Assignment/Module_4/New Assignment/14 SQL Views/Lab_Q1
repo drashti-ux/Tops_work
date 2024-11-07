@@ -1,0 +1,4 @@
+--Create a view to show all employees along with their department names.
+
+create view v1 as select emp_name,dept_name from employee inner join department on employee.dept_id = department.id;
+select * from v1;

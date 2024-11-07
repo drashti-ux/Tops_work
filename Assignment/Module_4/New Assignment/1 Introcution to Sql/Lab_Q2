@@ -1,0 +1,19 @@
+Lab - Q2
+Insert five records into the students table and retrieve all records using the SELECT statement.
+
+mysql> insert into students values(1,"Drashti",21,"Java","Rola,Valsad"),(2,"Diya",22,"Node Js","Valoti,Navsari"),(3,"Yas
+h",24,"PHP","Pardi,Valsad"),(4,"Riya",19,"React Js","Dungri,Valsad"),(5,"Avi",20,"Python","Valsad");
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++------------+--------------+------+----------+----------------+
+| student_id | student_name | age  | class    | address        |
++------------+--------------+------+----------+----------------+
+|          1 | Drashti      |   21 | Java     | Rola,Valsad    |
+|          2 | Diya         |   22 | Node Js  | Valoti,Navsari |
+|          3 | Yash         |   24 | PHP      | Pardi,Valsad   |
+|          4 | Riya         |   19 | React Js | Dungri,Valsad  |
+|          5 | Avi          |   20 | Python   | Valsad         |
++------------+--------------+------+----------+----------------+
+5 rows in set (0.00 sec)

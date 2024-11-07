@@ -1,0 +1,12 @@
+Lab - Q2
+Write a stored procedure that accepts course_id as input and returns the course
+details.
+
+use school_db;
+delimiter //
+create procedure get_cource_detail(in c_id int)
+begin
+select * from cources where cource_id = c_id;
+end //
+delimiter ;
+call get_cource_detail(1);

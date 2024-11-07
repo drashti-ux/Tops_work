@@ -1,0 +1,11 @@
+Lab - Q1
+Retrieve all courses from the courses table using the SELECT statement.
+
+mysql> select cource_id,cource_name,cource_duration as cource_duration_in_months from cources;
++-----------+-------------+---------------------------+
+| cource_id | cource_name | cource_duration_in_months |
++-----------+-------------+---------------------------+
+|         1 | java        |                         9 |
+|         2 | Python      |                        10 |
++-----------+-------------+---------------------------+
+2 rows in set (0.00 sec)

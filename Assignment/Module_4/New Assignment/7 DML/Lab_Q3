@@ -1,0 +1,14 @@
+Lab - Q3
+Delete a course with a specific course_id from the courses table using the DELETE command.
+
+mysql> delete from cources where cource_id = 3;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select cource_id,cource_name,cource_duration as cource_duration_in_months from cources;
++-----------+-------------+---------------------------+
+| cource_id | cource_name | cource_duration_in_months |
++-----------+-------------+---------------------------+
+|         1 | java        |                         9 |
+|         2 | Python      |                        10 |
++-----------+-------------+---------------------------+
+2 rows in set (0.00 sec)

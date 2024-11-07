@@ -1,0 +1,16 @@
+--Lab - Q2
+--Drop the course_credits column from the courses table
+
+mysql> alter table cources drop column cource_credits;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe cources;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| cource_id       | int         | NO   | PRI | NULL    |       |
+| cource_name     | varchar(20) | YES  |     | NULL    |       |
+| cource_duration | int         | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)

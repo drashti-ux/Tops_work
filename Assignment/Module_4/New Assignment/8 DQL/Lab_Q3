@@ -1,0 +1,11 @@
+Lab Q3 
+Limit the results of the SELECT query to show only the top two courses using LIMIT.
+
+mysql> select * from cources limit 2;
++-----------+-------------+-----------------+
+| cource_id | cource_name | cource_duration |
++-----------+-------------+-----------------+
+|         1 | java        |               9 |
+|         2 | Python      |              10 |
++-----------+-------------+-----------------+
+2 rows in set (0.00 sec)

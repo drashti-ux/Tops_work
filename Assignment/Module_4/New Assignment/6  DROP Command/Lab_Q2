@@ -1,0 +1,14 @@
+Lab - Q2
+Drop the students table from the school_db database and verify that the table has been removed.
+
+mysql> Drop table students;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_school_db |
++---------------------+
+| cources             |
+| teachers            |
++---------------------+
+2 rows in set (0.01 sec)

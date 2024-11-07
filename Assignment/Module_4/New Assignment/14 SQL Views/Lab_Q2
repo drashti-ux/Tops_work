@@ -1,0 +1,4 @@
+--Lab_Q2
+--Modify the view to exclude employees whose salaries are below $50,000.
+create or replace view v1 as select * from employee where emp_salary <50000;
+select * from v1;

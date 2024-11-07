@@ -1,0 +1,11 @@
+Lab - Q2
+Sort the courses based on course_duration in descending order using ORDER BY.
+
+mysql> select * from cources order by cource_duration desc;
++-----------+-------------+-----------------+
+| cource_id | cource_name | cource_duration |
++-----------+-------------+-----------------+
+|         2 | Python      |              10 |
+|         1 | java        |               9 |
++-----------+-------------+-----------------+
+2 rows in set (0.00 sec)

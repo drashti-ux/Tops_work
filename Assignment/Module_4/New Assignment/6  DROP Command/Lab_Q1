@@ -1,0 +1,5 @@
+Lab - Q1
+Drop the teachers table from the school_db database.
+
+mysql> Drop table teachers;
+ERROR 3730 (HY000): Cannot drop table 'teachers' referenced by a foreign key constraint 'fk_techid' on table 'students'.

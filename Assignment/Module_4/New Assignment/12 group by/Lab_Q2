@@ -1,0 +1,10 @@
+Use the AVG aggregate function to find the average salary of employees in each department.
+
+mysql> select dept_id,avg(emp_salary) as `average salary` from employee group by dept_id;
++---------+----------------+
+| dept_id | average salary |
++---------+----------------+
+|       1 |   52500.000000 |
+|       3 |   40000.000000 |
++---------+----------------+
+2 rows in set (0.00 sec)

@@ -1,0 +1,23 @@
+--Lab-Q1
+--Create a new database named school_db and a table called students with the following columns: student_id, student_name, age, class, and address.
+
+    mysql> create database school_db;
+    Query OK, 1 row affected (0.01 sec)
+
+    mysql> use school_db;
+    Database changed
+
+    mysql> create table students(student_id int,student_name varchar(30),age int,class varchar(20),address varchar(40));
+    Query OK, 0 rows affected (0.04 sec)
+
+    mysql> describe students;
+    +--------------+-------------+------+-----+---------+-------+
+    | Field        | Type        | Null | Key | Default | Extra |
+    +--------------+-------------+------+-----+---------+-------+
+    | student_id   | int         | YES  |     | NULL    |       |
+    | student_name | varchar(30) | YES  |     | NULL    |       |
+    | age          | int         | YES  |     | NULL    |       |
+    | class        | varchar(20) | YES  |     | NULL    |       |
+    | address      | varchar(40) | YES  |     | NULL    |       |
+    +--------------+-------------+------+-----+---------+-------+
+    5 rows in set (0.01 sec)

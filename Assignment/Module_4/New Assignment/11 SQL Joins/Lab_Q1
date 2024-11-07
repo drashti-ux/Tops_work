@@ -1,0 +1,74 @@
+--Lab - Q1
+--Create two tables: departments and employees. Perform an INNER JOIN to display employees along with their respective departments.
+
+mysql> create table department(id int primary key,dept_name varchar(20),dept_membs int,dept_max_salary decimal(10,2));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe department;
++-----------------+---------------+------+-----+---------+-------+
+| Field           | Type          | Null | Key | Default | Extra |
++-----------------+---------------+------+-----+---------+-------+
+| id              | int           | NO   | PRI | NULL    |       |
+| dept_name       | varchar(20)   | YES  |     | NULL    |       |
+| dept_membs      | int           | YES  |     | NULL    |       |
+| dept_max_salary | decimal(10,2) | YES  |     | NULL    |       |
++-----------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into department values(1,"software",5,100000.00),(2,"Hardware",3,80000.00),(3,"Electrical",7,70000.00);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from department;
++----+------------+------------+-----------------+
+| id | dept_name  | dept_membs | dept_max_salary |
++----+------------+------------+-----------------+
+|  1 | software   |          5 |       100000.00 |
+|  2 | Hardware   |          3 |        80000.00 |
+|  3 | Electrical |          7 |        70000.00 |
++----+------------+------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> create table employee (emp_id int primary key,emp_name varchar(20),city varchar(20),dept_id int,foreign key(dept_
+id) references department(id));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> describe employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| emp_id   | int         | NO   | PRI | NULL    |       |
+| emp_name | varchar(20) | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| dept_id  | int         | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee values(1,"drashti","valsad",1),(2,"yash","navsari",3),(3,"avi","surat",3),(4,"jeni","vadodra
+",2),(5,"riya","valsad",1);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+---------+---------+
+| emp_id | emp_name | city    | dept_id |
++--------+----------+---------+---------+
+|      1 | drashti  | valsad  |       1 |
+|      2 | yash     | navsari |       3 |
+|      3 | avi      | surat   |       3 |
+|      4 | jeni     | vadodra |       2 |
+|      5 | riya     | valsad  |       1 |
++--------+----------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee inner join department on employee.dept_id = department.id;
++--------+----------+---------+---------+----+------------+------------+-----------------+
+| emp_id | emp_name | city    | dept_id | id | dept_name  | dept_membs | dept_max_salary |
++--------+----------+---------+---------+----+------------+------------+-----------------+
+|      1 | drashti  | valsad  |       1 |  1 | software   |          5 |       100000.00 |
+|      5 | riya     | valsad  |       1 |  1 | software   |          5 |       100000.00 |
+|      4 | jeni     | vadodra |       2 |  2 | Hardware   |          3 |        80000.00 |
+|      2 | yash     | navsari |       3 |  3 | Electrical |          7 |        70000.00 |
+|      3 | avi      | surat   |       3 |  3 | Electrical |          7 |        70000.00 |
++--------+----------+---------+---------+----+------------+------------+-----------------+
+5 rows in set (0.00 sec)

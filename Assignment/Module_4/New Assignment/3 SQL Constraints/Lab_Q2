@@ -1,0 +1,19 @@
+--Lab-Q2
+--Implement a FOREIGN KEY constraint to relate the teacher_id from the teachers table with the students table.
+
+mysql> alter table students add column teacher_id int,add constraint fk_techid foreign key(teacher_id) references teachers(teacher_id);
+Query OK, 5 rows affected (0.08 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> describe students;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| student_id   | int         | YES  |     | NULL    |       |
+| student_name | varchar(30) | YES  |     | NULL    |       |
+| age          | int         | YES  |     | NULL    |       |
+| class        | varchar(20) | YES  |     | NULL    |       |
+| address      | varchar(40) | YES  |     | NULL    |       |
+| teacher_id   | int         | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)

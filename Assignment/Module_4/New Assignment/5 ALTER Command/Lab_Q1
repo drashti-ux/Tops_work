@@ -1,0 +1,17 @@
+--Lab - Q1
+--Modify the courses table by adding a column course_duration using the ALTER command.
+
+mysql> alter table cources add column cource_duration int;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe cources;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| cource_id       | int         | NO   | PRI | NULL    |       |
+| cource_name     | varchar(20) | YES  |     | NULL    |       |
+| cource_credits  | int         | YES  |     | NULL    |       |
+| cource_duration | int         | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)

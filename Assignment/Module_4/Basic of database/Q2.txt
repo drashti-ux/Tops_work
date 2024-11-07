@@ -3,10 +3,10 @@ ans:
    Normalization is a database design technique used to organize data to reduce redundancy and improve data integrity.
    
    Normal Forms (Steps in Normalization):
-    First Normal Form (1NF): Ensures that each column in a table holds atomic values (single values, no repeated groups or arrays).
+    1.First Normal Form (1NF): Ensures that each column in a table holds atomic values (single values, no repeated groups or arrays).
 
-    Second Normal Form (2NF): Builds on 1NF by ensuring that all non-key attributes are fully dependent on the primary key, eliminating partial dependencies.
+    2.Second Normal Form (2NF): Builds on 1NF by ensuring that all non-key attributes are fully dependent on the primary key, eliminating partial dependencies.
 
-    Third Normal Form (3NF): Eliminates transitive dependencies, where non-key attributes are dependent on other non-key attributes.
+    3.Third Normal Form (3NF): Eliminates transitive dependencies, where non-key attributes are dependent on other non-key attributes.
 
-    Boyce-Codd Normal Form (BCNF): A stricter version of 3NF, ensuring that every determinant is a candidate key.
+    4.Boyce-Codd Normal Form (BCNF): A stricter version of 3NF, ensuring that every determinant is a candidate key.

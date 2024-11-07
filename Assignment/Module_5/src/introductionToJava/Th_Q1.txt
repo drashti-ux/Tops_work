@@ -1,0 +1,19 @@
+//Q1.History of java
+ Ans:
+    Java was initially created by a team of engineers led by James Gosling at Sun Microsystems. The language was part of the Green Project, an initiative started in 1991 to create software for electronic devices and set-top boxes.
+
+    Java’s original name was Oak, named after an oak tree that stood outside Gosling’s office. However, it was later renamed to Java due to trademark issues, inspired by Java coffee, which the team consumed during development.
+
+    Java was officially launched as Java 1.0 in 1995. Sun Microsystems made Java freely available, promoting it as "write once, run anywhere" (WORA), which meant Java code could run on any device or operating system with a compatible JVM (Java Virtual Machine).
+
+    in 1998, Java 2 (also known as J2SE 1.2) was released. It introduced major improvements and was split into three editions to cater to different kinds of applications:
+        J2SE (Java 2 Standard Edition) for desktop applications.
+        J2EE (Java 2 Enterprise Edition) for server-based applications.
+        J2ME (Java 2 Micro Edition) for mobile and embedded devices.
+
+    Java’s main characteristics include:
+
+        Platform Independence: Java programs run on the JVM, making them portable across different systems.
+        Object-Oriented: Java is based on object-oriented principles, which helps developers create modular, maintainable code.
+        Robust and Secure: Java’s design emphasizes reliability, with features like garbage collection and strict error handling.
+        Multi-threaded: Java supports concurrent execution, enabling developers to build highly responsive applications.

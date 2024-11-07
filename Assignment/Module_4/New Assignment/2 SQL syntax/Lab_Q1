@@ -1,0 +1,14 @@
+Lab - Q1
+Write SQL queries to retrieve specific columns (student_name and age) from the students table.
+
+mysql> select student_name,age from students;
++--------------+------+
+| student_name | age  |
++--------------+------+
+| Drashti      |   21 |
+| Diya         |   22 |
+| Yash         |   24 |
+| Riya         |   19 |
+| Avi          |   20 |
++--------------+------+
+5 rows in set (0.00 sec)

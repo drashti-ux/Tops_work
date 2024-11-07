@@ -3,9 +3,9 @@ Q3.Get First_Name from employee table using Tom name “Employee Name”.
 mysql> use assignment;
 Database changed
 
- mysql> select first_name as Employee_Name from employee;
+ mysql> select first_name as `Employee Name` from employee;
     +---------------+
-    | Employee_Name |
+    | Employee Name |
     +---------------+
     | John          |
     | Michael       |

@@ -1,0 +1,20 @@
+Q10.What is trigger and how to create a Trigger in SQL? 
+Ans:
+    A trigger is a special type of stored procedure in SQL that automatically executes in response to certain events on a table or view. Triggers can be set to run before or after events such as INSERT, UPDATE, or DELETE. They are useful for maintaining data integrity, enforcing business rules, auditing changes, and more.
+
+    Types of Triggers
+    1.Before Trigger: Executes before the event (e.g., before inserting or updating data).
+    2.After Trigger: Executes after the event has occurred.
+    3.Instead Of Trigger: Typically used on views, this trigger replaces the action (useful in specific cases).
+
+    Syntax for Creating a Trigger
+    The general syntax for creating a trigger is as follows:
+    +-------------------------------------------------------------+
+    +    CREATE TRIGGER trigger_name                              +
+    +    [BEFORE | AFTER] [INSERT | UPDATE | DELETE]              +
+    +    ON table_name                                            +
+    +    FOR EACH ROW                                             +
+    +    BEGIN                                                    +
+    +        -- Trigger logic here                                +
+    +    END;                                                     +
+    +-------------------------------------------------------------+

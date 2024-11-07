@@ -1,0 +1,23 @@
+--Lab - Q2
+--Use the CREATE command to create a database university_db.
+
+mysql> create database university_db;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| assesment          |
+| assignment         |
+| drashti            |
+| information_schema |
+| mysql              |
+| new_assignment     |
+| performance_schema |
+| school_db          |
+| sys                |
+| task               |
+| university_db      |
++--------------------+
+11 rows in set (0.01 sec)

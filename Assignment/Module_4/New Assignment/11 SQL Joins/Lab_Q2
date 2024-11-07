@@ -1,0 +1,32 @@
+--Lab_Q2
+--Use a LEFT JOIN to show all departments, even those without employees.
+
+mysql> select emp_id,emp_name,city,dept_id,dept_name,dept_max_salary from department left join employee on employee.dept
+_id = department.id;
++--------+----------+---------+---------+------------+-----------------+
+| emp_id | emp_name | city    | dept_id | dept_name  | dept_max_salary |
++--------+----------+---------+---------+------------+-----------------+
+|      1 | drashti  | valsad  |       1 | software   |       100000.00 |
+|      5 | riya     | valsad  |       1 | software   |       100000.00 |
+|      4 | jeni     | vadodra |       2 | Hardware   |        80000.00 |
+|      2 | yash     | navsari |       3 | Electrical |        70000.00 |
+|      3 | avi      | surat   |       3 | Electrical |        70000.00 |
++--------+----------+---------+---------+------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from employee where id = 4;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> delete from employee where emp_id = 4;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select emp_id,emp_name,city,dept_id,dept_name,dept_max_salary from department left join employee on employee.dept_id = department.id;
++--------+----------+---------+---------+------------+-----------------+
+| emp_id | emp_name | city    | dept_id | dept_name  | dept_max_salary |
++--------+----------+---------+---------+------------+-----------------+
+|      1 | drashti  | valsad  |       1 | software   |       100000.00 |
+|      5 | riya     | valsad  |       1 | software   |       100000.00 |
+|   NULL | NULL     | NULL    |    NULL | Hardware   |        80000.00 |
+|      2 | yash     | navsari |       3 | Electrical |        70000.00 |
+|      3 | avi      | surat   |       3 | Electrical |        70000.00 |
++--------+----------+---------+---------+------------+-----------------+
+5 rows in set (0.00 sec)

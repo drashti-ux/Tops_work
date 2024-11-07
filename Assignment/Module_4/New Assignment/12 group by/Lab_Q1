@@ -1,0 +1,11 @@
+Lab - Q1
+Group employees by department and count the number of employees in each department using GROUP BY.
+
+mysql> select dept_id,count(emp_name) as `no of employees` from employee group by dept_id;
++---------+-----------------+
+| dept_id | no of employees |
++---------+-----------------+
+|       1 |               2 |
+|       3 |               2 |
++---------+-----------------+
+2 rows in set (0.00 sec)

@@ -1,0 +1,15 @@
+--Lab - Q1
+--Create a table courses with columns: course_id, course_name, and course_credits. Set the course_id as the primary key.
+
+mysql> create table cources(cource_id int primary key,cource_name varchar(20),cource_credits int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe cources;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| cource_id      | int         | NO   | PRI | NULL    |       |
+| cource_name    | varchar(20) | YES  |     | NULL    |       |
+| cource_credits | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)

@@ -1,0 +1,10 @@
+Write a stored procedure to retrieve all employees from the employees table based
+on department.
+
+    delimiter //
+    create procedure get_emp_by_dept(in d_id int)
+    begin 
+    select * from employee where dept_id = d_id;
+    end //
+    delimiter ;
+    call get_emp_by_dept(3);

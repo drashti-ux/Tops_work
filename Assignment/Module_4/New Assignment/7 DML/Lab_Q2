@@ -1,0 +1,16 @@
+Lab - Q2
+Update the course duration of a specific course using the UPDATE command.
+
+mysql> update cources set cource_duration = 9 where cource_id = 1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select cource_id,cource_name,cource_duration as cource_duration_in_months from cources;
++-----------+-------------+---------------------------+
+| cource_id | cource_name | cource_duration_in_months |
++-----------+-------------+---------------------------+
+|         1 | java        |                         9 |
+|         2 | Python      |                        10 |
+|         3 | PHP         |                        12 |
++-----------+-------------+---------------------------+
+3 rows in set (0.00 sec)
