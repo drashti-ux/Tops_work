@@ -1,4 +1,4 @@
-Q20.From the following table, write a SQL query to select a range of products whose price is in the range Rs.200 to Rs.600. Begin and end values are included. Return pro_id, pro_name, pro_price, and pro_com.
+--Q20.From the following table, write a SQL query to select a range of products whose price is in the range Rs.200 to Rs.600. Begin and end values are included. Return pro_id, pro_name, pro_price, and pro_com.
 
 mysql> create table item_mast (pro_id int ,pro_name varchar(20),pro_price decimal(10,2),pro_com int);
 Query OK, 0 rows affected (0.05 sec)

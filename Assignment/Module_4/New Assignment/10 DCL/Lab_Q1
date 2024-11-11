@@ -1,0 +1,45 @@
+-- Lab-Q1. Insert a few rows into the courses table and use COMMIT to save the changes.
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    +-----------+-------------+-----------------+
+    2 rows in set (0.00 sec)
+
+    mysql> savepoint s1;
+    Query OK, 0 rows affected (0.00 sec)
+
+    mysql> insert into cources values(3,"PHP",7),(4,"Database",5);
+    Query OK, 2 rows affected (0.01 sec)
+    Records: 2  Duplicates: 0  Warnings: 0
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    |         3 | PHP         |               7 |
+    |         4 | Database    |               5 |
+    +-----------+-------------+-----------------+
+    4 rows in set (0.00 sec)
+
+    mysql> commit;
+    Query OK, 0 rows affected (0.02 sec)
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    |         3 | PHP         |               7 |
+    |         4 | Database    |               5 |
+    +-----------+-------------+-----------------+
+    4 rows in set (0.00 sec)
+
+    mysql> rollback to savepoint s1;
+    ERROR 1305 (42000): SAVEPOINT s1 does not exist

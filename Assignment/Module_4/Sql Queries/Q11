@@ -1,4 +1,4 @@
-Q11.Create table given below: Salesperson and Customer  
+--Q11.Create table given below: Salesperson and Customer  
 
 mysql> use assignment;
 Database changed

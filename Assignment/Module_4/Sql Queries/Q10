@@ -1,3 +1,4 @@
+--Q.10-Create After Insert trigger on  Employee table which insert  records in viewtable
 use assignment;
 describe employee;
 

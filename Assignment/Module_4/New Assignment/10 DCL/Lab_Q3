@@ -1,0 +1,50 @@
+Lab-Q3 Create a SAVEPOINT before updating the courses table, and use it to roll back specific changes
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    |         3 | PHP         |               7 |
+    |         4 | Database    |               5 |
+    |         5 | Front-End   |               6 |
+    |         6 | AI          |              15 |
+    +-----------+-------------+-----------------+
+    6 rows in set (0.00 sec)
+
+    mysql> savepoint s1;
+    Query OK, 0 rows affected (0.00 sec)
+
+    mysql> update cources set cource_name = 'Back-end' where cource_id = 5;
+    Query OK, 1 row affected (0.00 sec)
+    Rows matched: 1  Changed: 1  Warnings: 0
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    |         3 | PHP         |               7 |
+    |         4 | Database    |               5 |
+    |         5 | Back-end    |               6 |
+    |         6 | AI          |              15 |
+    +-----------+-------------+-----------------+
+    6 rows in set (0.00 sec)
+
+    mysql> rollback to savepoint s1;
+    Query OK, 0 rows affected (0.00 sec)
+
+    mysql> select * from cources;
+    +-----------+-------------+-----------------+
+    | cource_id | cource_name | cource_duration |
+    +-----------+-------------+-----------------+
+    |         1 | java        |               9 |
+    |         2 | Python      |              10 |
+    |         3 | PHP         |               7 |
+    |         4 | Database    |               5 |
+    |         5 | Front-End   |               6 |
+    |         6 | AI          |              15 |
+    +-----------+-------------+-----------------+
+    6 rows in set (0.00 sec)
