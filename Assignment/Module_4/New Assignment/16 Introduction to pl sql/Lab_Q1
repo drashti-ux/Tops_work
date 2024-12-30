@@ -1,0 +1,14 @@
+--Lab 1: Write a PL/SQL block to print the total number of employees from the employees table.
+
+create table employee(id int,name varchar(20),dept_id int,city varchar(20));
+insert into employee values(1,'drashti',1001,'valsad');
+insert into employee values(2,'yash',1005,'navsari');
+insert into employee values(3,'avi',1004,'surat');
+insert into employee values(4,'jeni',1002,'valsad');
+SELECT * FROM employee;
+declare
+    total_count number;
+begin
+    select count(*) into total_count from employee;
+    dbms_output.put_line('total employees ='||total_count);
+end ;

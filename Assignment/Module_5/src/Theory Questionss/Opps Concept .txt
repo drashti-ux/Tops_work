@@ -1,0 +1,106 @@
+                                        Object-Oriented Programming (OOPs) Concepts
+
+Q1.Basics of OOP: Encapsulation, Inheritance, Polymorphism, Abstraction 
+Ans:   
+    Encapsulation:   
+        Encapsulation is the process of bundling data members and member functions that operate on the data into a single unit, typically a class.
+        the data members are defined as private. we can access this members using getter and setter methods.
+        It provides the concepts of data hiding. 
+    
+    Inheritance:
+        Inheritance allows one class (child or subclass) to inherit the properties and methods of another class (parent or superclass). It promotes code reusability and establishes a relationship between classes.
+        Key Features:
+        The extends keyword is used for inheritance.
+        The subclass can add its own methods or override parent methods.
+        Types of Inheritance:1.Single Inheritance,2.Multilevel Inheritance,3.Hierarchical Inheritance.
+    
+    Polymorphism:
+        It is the combination of the words poly which means many and morph which means forms 
+        it is the property of some code to behave differently for different contexts.
+        A single function or an operator can function in many ways on different instances depending upon the usage.
+
+    Types of Polymorphism:
+    1. Compile Time/static polymorphism/early binding
+        the binding of the call to its code is done at the compile time. 
+        Examples:Method overloading or operator overloading.
+
+    2. Runtime/dynamic polymorphism/late binding
+        actual implementation of the function is determined during the runtime or execution. 
+        Method overriding is an example of this method.
+
+    Abstraction:
+
+    Abstraction is similar to data encapsulation and is very important in OOP. It means showing only the necessary information and hiding the other irrelevant information from the user. Abstraction is implemented using classes and interfaces.
+    
+    use with class :
+    1.abstract class cannot have object
+    2.must inherit into some other class
+ 	
+    use with method: 
+ 	1.Abstract methods do not specify a body
+ 	2.must override into child class
+ 	3.The abstract method can only be defined by an 
+ 	abstract class
+
+Q2.Inheritance: Single, Multilevel, Hierarchical
+Ans:
+    Types of Inheritance:
+        1.Single Inheritance:in single inheritance A derived class inherits from only one base class.
+        A[Parent Class] --> B[Child Class];
+        syntax:
+            class A{
+
+            }
+            class B extends A{
+                
+            }
+
+        2.Multilevel Inheritance:in multilevel inheritance A class inherits from another class, which is itself derived from another class.
+        A[Grandparent Class] --> B[Parent Class]--> C[Child Class];
+        syntax:
+            class A{
+
+            }
+            class B extends A{
+
+            }
+            class C extends B{
+
+            }
+
+        3.Hierarchical Inheritance:in hierarchical inheritance Multiple derived classes inherit from a single base class.
+        A[Parent Class] --> B[Child Class 1];
+        A --> C[Child Class 2];
+        A --> D[Child Class 3];
+        syntax:
+            class A{
+
+            }
+            class B extends A{
+
+            }
+            Class C extends A{
+
+            }
+            
+Q3.Method Overriding and Dynamic Method Dispatch
+Ans:
+    Method Overriding:
+    - Reference and object are both of the child class.
+    - The child class provides its own implementation of the method, which is called directly.
+    - Overriding: Demonstrates the ability of the child class to redefine a parent class method.
+
+    Example:
+
+    Child child = new Child(); // Reference and object are both of Child
+    child.paint(); // Calls the overridden method in the Child class
+
+    Dynamic Method Dispatch:
+    - The reference is of the parent class, but the object is of the child class.
+    - The method that gets called is decided at runtime, based on the actual object (child class in this case).
+    - Dynamic Dispatch: Adds flexibility, allowing the program to decide which method to call (based on the object type) at runtime, even if you're using a parent reference.
+
+    Example:
+
+    Parent parent = new Child(); // Reference is of Parent, object is of Child
+    parent.paint(); // Calls the overridden method in the Child class

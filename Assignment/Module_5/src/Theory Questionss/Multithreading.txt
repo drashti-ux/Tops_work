@@ -1,0 +1,72 @@
+                                            Introduction to Threads
+
+Q1.Creating Threads by Extending Thread Class or Implementing Runnable Interface
+Ans:
+    Creating Thread By Extending Thread class:
+
+    class ABC extends Thread{
+        public void run(){
+            //code to be execute
+        }
+    }
+    public class Main{
+        public static void main(String [] args){
+            //thread object
+            ABC obj = new ABC();
+            obj.start();   // starts the thread
+        }
+    }
+
+    Creating Thread by Implementing Runnable Interface
+
+    class ABC implements Runnable{
+        @override
+        public void run(){
+            //code to be execute
+        }
+    }
+    public class Main{
+        public static void main(String [] args){
+            ABC obj = new ABC();
+            Thread th = new Thread(obj);
+            th.start(); // to start thread
+        }
+    }
+
+Q2.Thread Life Cycle
+Ans:
+    In Java, a thread always exists in any one of the following states. These states are:
+    1.new
+        Description: A thread is in the New state when it is created but has not yet started. At this stage, the thread is not eligible for scheduling and has not begun execution.
+        Transition: The thread will move to the Runnable state when the start() method is called.
+
+    2.Runnable
+        Description: A thread enters the Runnable state once it has been started using the start() method. This means the thread is eligible for execution and can be picked by the thread scheduler to run. However, it does not guarantee that the thread is currently running; it is just ready to run. The thread scheduler decides when to actually run it.
+        Transition: The thread stays in the Runnable state until it gets CPU time. It can also move back to Blocked, Waiting, or Timed Waiting states based on specific conditions like waiting for a resource or time.
+    
+    3.Running
+        Description: The thread is in the Running state when the thread scheduler has allocated CPU time to the thread and it is actively executing its run() method.
+        Transition: The thread enters the Running state from the Runnable state when it is selected by the scheduler to run on a processor. It then continues executing until its task is completed or it is blocked (due to waiting for resources or synchronization).
+    
+    4.Blocked/Waiting
+         Description: thread enters the Blocked state when it tries to acquire a lock that is currently held by another thread.A thread enters the Waiting state when it is waiting indefinitely for another thread to perform a specific action (such as notifying it with notify() or notifyAll()). This typically happens when a thread calls methods like wait(), join(), or Lock.await().
+         Transition: The thread transitions back to the Runnable state when it successfully acquires the lock (in case of Blocked state) or when it is notified (in the case of Waiting state).
+    
+    5.Dead
+        Description: A thread enters the Dead state when it has completed its execution, meaning its run() method has finished. Once a thread reaches the Dead state, it cannot be restarted.
+        Transition: A thread reaches the Dead state once its task is completed or if it is interrupted or explicitly stopped. A thread can never transition back from the Dead state to any other state.
+        
+Q3.Synchronization and Inter-thread Communication
+Ans:
+    Synchronization:
+    Synchronization is the process of controlling the access of multiple threads to shared resources to prevent data corruption.
+    Why Synchronization is Needed?
+        When multiple threads access shared resources (such as variables or objects) simultaneously, it can lead to race conditions, data inconsistencies, and unpredictable results.
+        To solve this, synchronization ensures that only one thread at a time can access a shared resource.
+
+    Inter-thread Communication:
+        Inter-thread communication is used when one thread needs to notify another thread to perform an action. This is particularly useful when you have multiple threads working together or waiting for certain conditions.
+        Java provides built-in methods for inter-thread communication: wait(), notify(), and notifyAll(). These methods are defined in the Object class, as every object in Java has an intrinsic lock.
+        wait() — Causes the current thread to wait.
+        notify() — Wakes up one waiting thread.
+        notifyAll() — Wakes up all waiting threads.

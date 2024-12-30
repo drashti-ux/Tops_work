@@ -1,0 +1,120 @@
+                                        DataTypes,Variables,operators
+
+Q1.Primitive Data Types in Java (int, float, char, etc.)
+Ans:
+    primitive types are predefined and are used to store simple or single values such as numbers, characters, or logical values. 
+    
+    Data Type	    Size (in bytes)		            Range
+        byte		        1			        -128 to127
+        short		        2	    		    -32,768 to32,767
+        int		            4	    		    -2,147,483,648 to2,147,483,647
+        long	    	    8		    	    -9,223,372,036,854,775,808 to9,223,372,036,854,775,807
+        float		        4			        Approximately ±3.40282347E+38 (7 decimal places)
+        double		        8		    	    Approximately ±1.79769313486231570E+308 (15 decimal places)
+        char	    	    2	       		    0 to 65,535 (represents a single16-bit Unicode character)
+        boolean		        1	    		    true or false
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q2.Variable Declaration and Initialization
+Ans:
+    1.Declaration is the process of specifying the name and type of a variable. When you declare a variable, you are reserving space in memory for it, but it doesn't yet have a value.
+
+    Key Points:
+    The compiler knows the data type and memory allocation for the variable.
+    The variable is not yet assigned a value.
+
+    Example:
+    int age;
+
+    2. Initialization
+    Initialization is the process of assigning a starting value to a variable. This can happen at the time of declaration or later.
+
+    Key Points:
+    Assigns a specific value to the variable.
+    A variable must be initialized before its value is used in most programming languages, including Java.
+
+    Example:
+    age = 25;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q3.Operators: Arithmetic, Relational, Logical, Assignment, Unary, and Bitwise
+Ans:
+    In Java, operators are special symbols or keywords used to perform operations on variables and values. 
+
+    1. Arithmetic Operators
+        These are used for mathematical calculations.
+        Operator	Description	            Example
+      +	        Addition	            a + b
+      -	        Subtraction	            a - b
+      *	        Multiplication	        a * b
+      /	        Division	            a / b
+      %	        Modulus (remainder)	    a % b
+
+    2. Relational (Comparison) Operators
+        These compare two values and return a boolean result (true or false).
+        Operator	Description	                Example
+        ==	    Equal to	                a == b
+        !=	    Not equal to	            a != b
+        >	        Greater than	            a > b
+        <	        Less than	                a < b
+        >=	    Greater than or equal to	a >= b
+        <=	    Less than or equal to	    a <= b
+
+    3. Logical Operators
+        These operate on boolean values and return a boolean result.
+        Operator	Description	                Example
+        &&	    Logical AND (both true)	    a > 5 && b < 10
+        ||        Logical OR(any one true)    a > 5 || a < 10
+        !	        Logical NOT (negation)	    !(a > 5)
+
+    4. Bitwise Operators
+        These perform bit-level operations on integer types.
+        Operator	Description	            Example
+        &	        Bitwise AND	            a & b
+        |	        Bitwise OR              a | b
+        ^	        Bitwise XOR	            a ^ b
+        ~	        Bitwise Complement	    ~a
+        <<	    Left shift	            a << 2
+        >>	    Right shift	            a >> 2
+        >>>	    Unsigned right shift    a >>> 2
+
+    5. Assignment Operators
+        These are used to assign values to variables.
+        Operator	Description	            Example
+          =	        Simple assignment	    a = b
+          +=	    Add and assign	        a += b
+          -=	    Subtract and assign	    a -= b
+          *=        Multiply and assign	    a *= b
+          /=        Divide and assign	    a /= b
+          %=        Modulus and assign	    a %= b
+
+    6.Increment / Decrement Operator
+        Operator	Description	            Example
+          ++	    Increment (pre/post)	++a, a++
+          --	    Decrement (pre/post)	--a, a--
+
+    7. Ternary Operator
+        This is a shorthand for an if-else statement.
+        Operator	    Description	    Example
+        ? :	Ternary     conditional	    a > b ? x : y
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q4.Type Conversion and Type Casting
+Ans:
+    Type Conversion (Implicit Casting / Widening Conversion /)
+        Definition: Automatic conversion of a smaller data type to a larger data type.
+            byte → short → int → long → float → double 
+        Performed By: The compiler automatically.
+        Example:
+            int num = 100;
+            double result = num; 
+
+    type Casting (Explicit Casting / Narrowing Conversion)
+        Definition: Explicitly converting a larger data type into a smaller data type.
+            double → float → long → int → short → byte
+        Performed By: The programmer manually.
+        syntax:
+            type variableName = (type) value;
+        Example:
+            double num = 100.5;
+            int result = (int) num;  // Explicit casting (double to int)

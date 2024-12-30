@@ -1,0 +1,137 @@
+                                        Methods in Java
+Q1.Defining Methods
+Ans:
+    method is a block of code that performs a specific task. Methods allow us to define behaviors for the objects of a class. A method typically takes inputs (parameters), processes them, and returns a result (optional).
+
+    The basic syntax for defining a method in Java is:
+    returnType methodName(parameter1, parameter2, ...) {
+        // method body
+        // code that defines the behavior
+    }
+
+    four types of methods:
+    1. method without parameter and without return type
+    2. method with parameter and without return type
+    3. method without parameter and with return type
+    4. method with parameter and with return type
+
+Q2.Method Parameters and Return Types
+Ans:
+    methods can have parameters and a return type. Both play an important role in passing data to methods and receiving data back from them
+    1. Method Parameters
+    Parameters are variables used to pass information into methods. They are declared in the method signature and allow you to send values to the method when it is called. There are two types of parameters in Java:
+
+    Formal Parameters: These are defined in the method signature (the method declaration).
+    Actual Parameters (Arguments): These are the values passed to the method when it is called.
+    Example:
+    Sclass Calculator {
+        // Method with two parameters
+        int add(int a, int b) {
+            return a + b;  // Return the sum of 'a' and 'b'
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Calculator calc = new Calculator();
+            int result = calc.add(5, 3);  // Passing actual parameters (5 and 3)
+            System.out.println("Result: " + result);  // Output: 8
+        }
+    }
+
+    Return Types
+    The return type of a method specifies the type of value the method will return. If a method does not return any value, the return type is specified as void.
+
+    Primitive Data Types: Methods can return primitive data types such as int, float, char, etc.
+    Reference Types: Methods can also return objects, arrays, or other reference types like String or user-defined types.
+
+Q3.Method Overloading
+Ans:
+    Method Overloading is a feature in object-oriented programming (especially in languages like Java, C#, etc.) that allows a class to have more than one method with the same name but different parameter lists. The methods perform similar or related tasks but handle different types or numbers of inputs.
+
+    Example:
+    class Calculator {
+    // Method to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method to add two double values
+    double add(double a, double b) {
+        return a + b;
+    }
+    }
+
+    public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(2, 3));       // Calls method with two integers
+        System.out.println(calc.add(2, 3, 4));    // Calls method with three integers
+        System.out.println(calc.add(2.5, 3.5));   // Calls method with two doubles
+    }
+    }
+
+Q4.Static Methods and Variables
+Ans:
+    Static variables
+
+    A static variable is shared by all instances of a class.
+    It is initialized only once, at the start of the program, and retains its value throughout the program execution.
+    Static variables are associated with the class rather than any specific instance.
+    
+    Syntax:
+    class ClassName {
+        static int staticVariable;
+    }
+
+    Example:
+
+    class Counter {
+    static int count = 0; // Static variable
+        Counter() {
+            count++; // Increment the static variable
+        }
+        void displayCount() {
+            System.out.println("Count: " + count);
+        }
+    }
+    public class Main {
+        public static void main(String[] args) {
+            Counter c1 = new Counter();
+            Counter c2 = new Counter();
+            Counter c3 = new Counter();
+
+            c1.displayCount(); // Output: Count: 3
+            c2.displayCount(); // Output: Count: 3
+            c3.displayCount(); // Output: Count: 3
+        }
+    }
+
+    Static Methods
+
+    A static method belongs to the class, not an instance of the class.
+    It can be called directly using the class name, without creating an object.
+    Static methods cannot access non-static members (variables or methods) directly because they are not tied to an instance of the class.
+    They can access only other static members or methods.
+
+    Example:
+
+    class MathUtil {
+    static int add(int a, int b) { // Static method
+        return a + b;
+    }
+    }
+    public class Main {
+    public static void main(String[] args) {
+        // Calling the static method using the class name
+        int result = MathUtil.add(5, 10);
+        System.out.println("Sum: " + result); // Output: Sum: 15
+    }
+    }
+

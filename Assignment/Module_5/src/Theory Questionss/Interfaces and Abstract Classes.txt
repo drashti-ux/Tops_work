@@ -1,0 +1,20 @@
+                                            Interfaces and Abstract Classes
+
+Q1.Abstract Classes and Methods
+Ans:
+    In Java, an abstract class is a class that cannot be instantiated on its own and is meant to be inherited by other classes. It can contain both abstract methods (methods without a body) and concrete methods (methods with a body).
+    
+    Abstract Class:
+    -An abstract class is a class that is declared with the abstract keyword.
+    -It can have abstract methods (methods without a body) and concrete methods (methods with a body).
+    -An abstract class cannot be instantiated directly, i.e., you cannot create objects of the abstract class.
+    -It is meant to be subclassed, and the subclass must provide implementations for the abstract methods (unless the subclass is also abstract).
+    -must inherit into some other class
+
+    Abstract Method:
+    -An abstract method is a method declared in an abstract class without providing a body.
+    -The subclass must override the abstract method and provide a concrete implementation, unless the subclass is abstract itself.
+    
+Q2.Interfaces: Multiple Inheritance in Java
+
+Q3.Implementing Multiple Interface

@@ -1,0 +1,6 @@
+Lab-Q3.Compile and run the program using command-line tools (javac, java).
+Ans:
+	D:\Tops_work\Assignment\Module_5\src\introductionToJava>javac Lab_Q2.java
+	
+	D:\Tops_work\Assignment\Module_5\src\introductionToJava>java Lab_Q2.java
+	Hello! World..

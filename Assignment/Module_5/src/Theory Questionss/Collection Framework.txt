@@ -1,0 +1,8 @@
+                                                Collections Framework
+
+Q1.Introduction to Collections Framework
+Ans:
+    
+o List, Set, Map, and Queue Interfaces
+o ArrayList, LinkedList, HashSet, TreeSet, HashMap, TreeMap
+o Iterators and ListIterators

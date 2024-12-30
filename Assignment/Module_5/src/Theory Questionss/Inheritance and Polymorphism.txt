@@ -1,0 +1,53 @@
+                                            Inheritance and Polymorphism
+
+Q1.Inheritance Types and Benefits
+Ans:
+    Inheritance is a core concept of object-oriented programming (OOP) that allows a class (called the child class or subclass) to inherit properties and behaviors (fields and methods) from another class (called the parent class or superclass). It promotes code reuse, modularity, and a logical hierarchy.
+
+    Types of Inheritance:
+    1.Single Inheritance:A subclass inherits from a single parent class.
+    2.Multilevel Inheritance:A class inherits from a class that is itself a subclass of another class.
+    3.Hierarchical Inheritance:Multiple child classes inherit from a single parent class.
+    4.Multiple Inheritance (Interface-based in Java):A class can implement multiple interfaces.
+    5.Hybrid Inheritance (Supported indirectly in Java through interfaces):A combination of two or more types of inheritance.
+    
+    Benefits of Inheritance:
+    -Code Reusability : Common functionality can be written in a parent class and reused in subclasses, reducing redundancy.
+    -Extensibility : Subclasses can extend or modify the functionality of the parent class to suit specific needs.
+    -Modularity : Logical grouping of classes with a hierarchical structure makes programs easier to understand and maintain.
+    -Ease of Maintenance : Changes in the parent class automatically propagate to subclasses, simplifying updates.
+    -Polymorphism Support : Facilitates method overriding, enabling dynamic method dispatch for flexibility and runtime behavior.
+    -Enhances Code Organization : Establishes a clear hierarchy that mimics real-world relationships.
+
+Q2.Method Overriding
+Ans:
+    Method overridin occurs when a derived class provides a specific implementation for a method that is already defined in its base class.
+
+    Key points of method overriding:
+
+    - Same method name, same parameters, and same return type in both base and derived classes
+    - Allows a subclass to provide a specific implementation of a method that is already defined in its superclass
+    - Enables runtime polymorphism
+    - The overridden method must have the same signature as the method in the base class
+        
+Q3.Dynamic Binding (Run-Time Polymorphism)
+Ans:
+    Dynamic Binding, also known as Run-Time Polymorphism, is a mechanism in object-oriented programming where the method to be executed is determined at runtime based on the object's actual type, not the reference type. It is primarily achieved through method overriding.
+    Key Characteristics of Dynamic Binding
+    -Determined at Runtime : The method to invoke is decided at runtime based on the object's type.
+    -Achieved Through Method Overriding : A subclass provides a specific implementation of a method already defined in its parent class.
+    -Polymorphism : Enables one interface to be used for different underlying forms (method behavior).
+    -Requires Upcasting : A parent reference is used to refer to a child object, enabling runtime polymorphism.
+
+Q4.Super Keyword and Method Hiding
+Ans:
+    Super Keyword:
+    The super keyword in Java is used to refer to the immediate parent class of the current class. It serves several purposes, primarily in inheritance, and allows you to access members (fields, methods, constructors) of the parent class from a subclass.
+
+    Main Uses of super Keyword:
+    1.Access Parent Class Methods
+        Ex:super.display(); // Call the parent class method
+    2.Access Parent Class Constructors
+        Ex:super(); // Calls the Parent class constructor
+    3.Access Parent Class Fields
+        Ex:System.out.println("Parent num: " + super.num); // Refers to parent class field

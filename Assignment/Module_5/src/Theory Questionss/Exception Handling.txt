@@ -1,0 +1,85 @@
+                                        Exception Handling
+Q1.Types of Exceptions: Checked and Unchecked
+Ans:
+    Exceptions in Java are classified into checked and unchecked based on when they are checked by the compiler and how they should be handled.
+
+    Checked Exceptions:
+    Definition: Exceptions that are checked at compile-time. The programmer must handle these exceptions either with a try-catch block or by declaring them with the throws keyword.
+    
+    Examples:   IOException , SQLException , ClassNotFoundException , FileNotFoundException
+    
+    Unchecked Exceptions
+    Definition: Exceptions that are not checked at compile-time. They occur at runtime, and the programmer is not required to handle them explicitly.
+
+    Examples: ArithmeticException , NullPointerException , ArrayIndexOutOfBoundsException , NumberFormatException
+  
+Q2.try, catch, finally, throw, throws
+Ans:
+    These keywords are part of Java exception handling, which ensures that programs can handle unexpected errors gracefully.
+    
+    1. try: Used to enclose a block of code that might throw an exception.
+    Syntax:
+        try {
+         int result = 10 / 0; // This will throw an ArithmeticException (Risky Code)
+        }
+
+    2. catch: Handles the exception thrown in the try block.You can have multiple catch blocks to handle different types of exceptions.
+    Syntax:
+        catch (Exception_name/Exception e) {
+            System.out.println("Arithmetic Exception caught");
+        }You can have multiple catch blocks to handle different types of exceptions.
+
+    3. finally: A block that always executes, regardless of whether an exception was thrown or caught.Often used for cleanup operations, such as closing resources (files, database connections, etc.).
+    Syntax:
+        finally {
+            System.out.println("Finally block always executes."); //block of code that must be execute
+        }
+
+    4. throw: Used to explicitly throw an exception from a method or block of code.The thrown object must be of type Throwable (e.g., Exception or Error).
+    Syntax:
+        throw new exception_name();
+
+    5.throws:Declares exceptions that a method might throw.Used in the method signature to indicate the caller must handle or rethrow the exception.
+    Syntax:
+        public void readFile(String filePath) throws IOException {
+        }
+
+    Example with All Keywords Together:
+    
+    import java.io.*;
+    public class ExceptionExample {
+        public static void main(String[] args) {
+            try {
+                riskyMethod();
+            } catch (IOException e) {
+                System.out.println("Caught exception: " + e.getMessage());
+            } finally {
+                System.out.println("Cleanup done in finally block.");
+            }
+        }
+
+        public static void riskyMethod() throws IOException {
+            throw new IOException("Simulated exception");
+        }
+    }
+
+    Key Points:
+    -try: Encapsulates risky code.
+    -catch: Handles exceptions.
+    -finally: Always executes, typically used for resource cleanup.
+    -throw: Explicitly throws an exception.
+    -throws: Declares exceptions a method might throw.
+
+Q3.Custom Exception Classes
+Ans:
+    Custom exception classes in Java are user-defined exceptions that allow developers to create specific exceptions tailored to their application's needs. They typically extend the Exception or RuntimeException classes.
+    Steps to Create a Custom Exception
+
+    1.Create a class extending Exception or RuntimeException:
+    Extend Exception for checked exceptions (must be declared in method signatures).
+    Extend RuntimeException for unchecked exceptions (no need to declare explicitly).
+    
+    2.Provide constructors:
+    -Default constructor.
+    -Constructor with a custom message.
+    -Constructor with a custom message and a cause

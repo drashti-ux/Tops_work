@@ -1,0 +1,95 @@
+                                                Control Flow Statements
+
+Q1.If-Else Statements
+Ans:
+    If-Else Statements are fundamental control flow statements in programming that allow you to make decisions based on conditions. They let your program execute certain blocks of code depending on whether a given condition is true or false
+    Syntax:
+    if (condition) {
+        // Code to execute if the condition is true
+    } else {
+        // Code to execute if the condition is false
+    }
+
+    Variants of If-Else:
+    1. If-Else If-Else Ladder:
+    Used when you have multiple conditions to check.
+
+    if (condition1) {
+        // Code for condition1
+    } else if (condition2) {
+        // Code for condition2
+    } else {
+        // Code if none of the conditions are true
+    }
+
+    2.Nested If-Else:
+    If-Else statements can be nested within each other for more complex decision-making.
+
+    if (condition1) {
+        if (condition2) {
+            // Code if both conditions are true
+        } else {
+            // Code if condition1 is true and condition2 is false
+        }
+    } else {
+        // Code if condition1 is false
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q2.Switch Case Statements
+Ans:
+    A switch statement in Java is a control flow statement that allows you to execute one block of code among many options based on the value of an expression. It is often used when you have multiple possible values for a single variable or expression.
+
+    Syntax:
+    switch (expression) {
+        case value1:
+            // Code to execute if expression == value1
+            break;
+        case value2:
+            // Code to execute if expression == value2
+            break;
+        // Add more cases as needed
+        default:
+            // Code to execute if no case matches
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q3.Loops (For, While, Do-While)
+Ans:
+    Loops in Java are used to execute a block of code repeatedly as long as a specified condition is true. Java provides three primary types of loops: for, while, and do-while. Each has unique use cases based on the requirements.
+
+    1. for Loop
+        A for loop is used when the number of iterations is known beforehand.
+        Syntax:
+        for (initialization; condition; update) {
+            // Code to execute
+        }
+
+    2. while Loop
+        A while loop is used when the number of iterations is not known in advance and depends on a condition.
+        Syntax:
+        while (condition) {
+            // Code to execute
+        }
+
+    3. do-while Loop
+        A do-while loop is used when the loop must execute at least once, regardless of the condition.
+        Syntax
+        do {
+            // Code to execute
+        } while (condition);
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Q4.Break and Continue Keywords
+    the break and continue keywords are control statements that alter the flow of a loop or a switch statement.
+
+    1. break Keyword
+    The break statement is used to exit a loop or a switch statement prematurely. When a break is encountered, the control immediately exits the nearest enclosing loop or switch.
+        Syntax
+        break;
+    
+    2.continue Keyword
+    The continue statement is used to skip the current iteration of a loop and move to the next iteration. When continue is encountered, the rest of the loop body is skipped, and the loop proceeds with the next iteration.
+
+    Syntax:
+    continue;

@@ -12,7 +12,7 @@ int main(){
         for (int j = 0; j < rows - i - 1; j++) {
             printf(" ");
         }
-
+ 
         int coefficient = 1; // Reset coefficient for each row
 
         for (int j = 0; j <= i; j++) {

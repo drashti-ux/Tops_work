@@ -1,0 +1,106 @@
+                                                Classes and Objects 
+
+Q1.Defining Classe and objects in java
+Ans:
+    Class
+    class is a collection data member and member function.
+    A class is a blueprint or template for creating objects. It defines the properties (fields) and behaviors (methods) that the objects created from the class will have. However, a class itself does not occupy memory until an object of the class is created.
+    
+    Defining a Class
+    A class is defined using the class keyword.
+    class ClassName {
+        // Fields (Attributes/Properties)
+        DataType fieldName;
+
+        // Methods (Behaviors)
+        ReturnType methodName() {
+            // Method body
+        }
+    }
+
+    Object
+    object gives permission to access functionality of class
+    An object is an instance of a class. When a class is instantiated, it creates an object in memory, which contains its own copies of the fields defined in the class and access to its methods.
+
+    Creating an Object
+    An object is created using the new keyword.
+         ClassName objectName = new ClassName();
+
+Q2.Constructors and Overloading
+    A constructor is a special method in Java used to initialize objects. It is called when an object of the class is created and often sets initial values for the fields of the object.
+
+    1. Constructors
+
+    Key Features of a Constructor:
+    Same name as the class: The constructor must have the same name as the class.
+    No return type: Constructors do not have a return type, not even void.
+    Automatically invoked: A constructor is called automatically when an object is created.
+    Default Constructor: If no constructor is defined, Java provides a default constructor with no parameters.
+    Syntax
+        class ClassName {
+        // Constructor
+        ClassName() {
+            // Initialization code
+        }
+        }
+
+    2.Constructor Overloading
+
+    Constructor overloading means having multiple constructors in the same class, each with a different parameter list. It allows you to create objects in different ways based on the input provided.
+    example:
+        class Car {
+        String brand;
+        int speed;
+
+        // Default Constructor
+        Car() {
+            brand = "Unknown";
+            speed = 0;
+        }
+
+        // Parameterized Constructor
+        Car(String brandName, int maxSpeed) {
+            brand = brandName;
+            speed = maxSpeed;
+        }
+
+        void displayInfo() {
+            System.out.println("Brand: " + brand);
+            System.out.println("Speed: " + speed);
+        }
+        }
+
+    public class Main {
+        public static void main(String[] args) {
+            // Using Default Constructor
+            Car defaultCar = new Car();
+            defaultCar.displayInfo();
+
+            // Using Parameterized Constructor
+            Car parameterizedCar = new Car("Toyota", 180);
+            parameterizedCar.displayInfo();
+        }
+    }
+
+Q3.Object Creation, Accessing Members of the Class
+Ans:
+    Object Creation
+    Objects are created using the new keyword, which dynamically allocates memory and invokes the class constructor.
+    Syntax
+    ClassName objectName = new ClassName();
+
+    Accessing Members of a Class
+    To access the fields and methods of a class, use the dot operator (.) with the object name.
+    Syntax
+    objectName.fieldName;  // Accessing fields
+    objectName.methodName(); // Accessing methods
+
+Q4.This keyword
+Ans:
+    The this keyword in Java is a reference variable that refers to the current object of a class. It is used within an instance method or a constructor to differentiate between class fields and local variables, or to invoke other constructors or methods within the same object.
+
+    key points:
+    Refers to the Current Object: The this keyword always points to the object that called the method or constructor.
+    Resolves Naming Conflicts: Used to differentiate between class fields and local variables or parameters with the same name.
+    Supports Constructor Chaining: Allows constructors to call each other within the same class.
+    Method Chaining: Enables chaining of methods by returning the current object.

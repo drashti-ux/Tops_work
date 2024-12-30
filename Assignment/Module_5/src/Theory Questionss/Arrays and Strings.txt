@@ -1,0 +1,118 @@
+                                                Arrays and Strings
+
+Q1.One-Dimensional and Multidimensional Arrays
+Ans:
+    In Java, an array is a collection of similar data elements stored at contiguous memory locations. Arrays allow you to store multiple values in a single variable, rather than declaring separate variables for each value.
+
+    two types of arrays:One-Dimensional Arrays,Multidimensional Arrays
+    1. One-Dimensional Array
+        A one-dimensional array is a list of elements of the same type arranged in a linear sequence. It can be thought of as a single row or column.
+        syntax:
+            //Declaration
+            int[] arr; // Declaration of array
+                    or
+            int arr[]; // Alternative syntax
+
+            // initialization
+            int[] arr = new int[5]; // An array of 5 integers, default values will be 0
+                        or
+            int[] arr = {10, 20, 30, 40, 50}; // Array initialization with values
+
+    2.Multidimensional Arrays:
+        A multidimensional array is an array of arrays. In Java, you can have arrays with multiple dimensions. A 2D array is the most common form of multidimensional arrays, but arrays can have more than two dimensions.
+        syntax:
+            int[][] matrix; // Declaration of 2D array
+
+        Jagged Arrays:
+        In Java, a jagged array (also called a ragged array) is an array of arrays where the subarrays (inner arrays) can have different lengths.
+        sysntax:
+            int[][] jaggedArray = new int[3][]; // A jagged array with 3 rows
+            jaggedArray[0] = new int[2]; // First row has 2 columns
+            jaggedArray[1] = new int[3]; // Second row has 3 columns
+            jaggedArray[2] = new int[4]; // Third row has 4 columns
+
+Q2.String Handling in Java: String Class, StringBuffer, StringBuilder
+Ans:
+    In Java, strings are objects that represent sequences of characters. Java provides several classes for handling strings, such as String, StringBuffer, and StringBuilder. Each class has its own characteristics and use cases.
+    
+    The String Class:
+        The String class in Java represents an immutable sequence of characters. This means that once a string is created, it cannot be changed. Any operation that seems to modify a string actually creates a new string object.
+
+        String Declaration and Initialization:
+            String str1 = "Hello";
+            String str2 = new String("World");
+
+    The StringBuffer Class:
+        StringBuffer is used for creating mutable strings, meaning you can modify the contents of a StringBuffer object without creating new objects each time. It is synchronized, making it thread-safe, but a bit slower than StringBuilder.
+
+        syntax:
+            StringBuffer sb = new StringBuffer("Hello");
+
+    The StringBuilder Class:
+        StringBuilder is similar to StringBuffer in that it is mutable, but it is not synchronized. This means it is not thread-safe but provides better performance in single-threaded environments or where thread-safety is not a concern.
+
+        syntax:
+            StringBuilder sb = new StringBuilder("Hello");
+
+
+Q3.Array of Objects
+Ans:
+    An array of objects in Java refers to an array where each element is an object of a class. This allows you to store multiple instances of a class in a single array.
+    Just like an array of primitive types (e.g., int[], char[]), an array of objects can be used to store multiple objects, but the elements are references to the objects in memory, not the objects themselves.
+
+    Creating an Array of Objects
+    To create an array of objects, you first define the class type of the objects that the array will store, then create the array with the specific size or directly initialize the objects.
+    syntax:
+        ClassName[] arrayName = new ClassName[arraySize];
+    Example:
+        class Student {
+        String name;
+        int age;
+
+        // Constructor
+            Student(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            // Method to display student details
+            void display() {
+                System.out.println("Name: " + name + ", Age: " + age);
+            }
+        }
+
+        public class Main {
+            public static void main(String[] args) {
+                // Declaring and initializing the array of Student objects
+                Student[] students = new Student[3];
+
+                // Creating Student objects and assigning to the array
+                students[0] = new Student("Alice", 20);
+                students[1] = new Student("Bob", 22);
+                students[2] = new Student("Charlie", 21);
+
+                // Displaying the details of each student
+                for (int i = 0; i < students.length; i++) {
+                    students[i].display();
+                }
+            }
+        }
+
+
+Q4.String Methods (length, charAt, substring, etc.)
+Ans:
+    Method	                            Description
+    length()	                        Returns the length of the string.
+    charAt(int index)	                Returns the character at the specified index.
+    substring(int start, int end)	    Returns a substring from the start index to end index - 1.
+    indexOf(String str)	                Returns the index of the first occurrence of the specified substring.
+    equals(String anotherString)	    Compares two strings for equality.
+    toUpperCase()	                    Converts all characters to uppercase.
+    toLowerCase()	                    Converts all characters to lowercase.
+    trim()	                            Removes leading and trailing whitespace from the string.
+    replace()	                        Replaces characters or substrings with new values.
+    startsWith()	                    Checks if the string starts with the specified prefix.
+    endsWith()	                        Checks if the string ends with the specified suffix.
+    contains()	                        Checks if the string contains the specified sequence of characters.
+    split()	                            Splits the string into an array of substrings based on the regex.
+    valueOf()	                        Converts other data types (e.g., int, char, Object) to a string.
