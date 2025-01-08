@@ -18,8 +18,7 @@ public class Lab_Q1 {
 		}
 		catch(Exception e) {
 			System.out.println(e);
-		}
-		
+		}	
 //		read data from the file
 		try {
 			FileReader f_read = new FileReader("src\\File_Handling\\NewFile.txt");
@@ -32,5 +31,6 @@ public class Lab_Q1 {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
 	}
 }

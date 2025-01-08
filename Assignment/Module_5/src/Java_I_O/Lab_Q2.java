@@ -8,7 +8,7 @@ public class Lab_Q2 {
 	public static void main(String[] args) {
 		
 		try {
-			FileInputStream fis = new FileInputStream("src\\\\Java_I_O\\\\source.jpg");
+			FileInputStream fis = new FileInputStream("src\\Java_I_O\\source.jpg");
 			FileOutputStream fos = new FileOutputStream("src\\Java_I_O\\destCopy.jpg");
 			int x;
 			while((x=fis.read())!= -1) {
