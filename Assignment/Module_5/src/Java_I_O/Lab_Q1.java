@@ -29,7 +29,6 @@ public class Lab_Q1 {
 			e.printStackTrace();
 		} 
 		finally{
-			
 			sc.close();
 		}
 		
