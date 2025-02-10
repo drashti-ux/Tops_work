@@ -1,0 +1,514 @@
+1. What is JDBC (Java Database Connectivity)?
+Ans:  JDBC Stands For Java Database Connectivity.JDBC Specifacation is prepared by sun Microsystem.
+      JDBC is nothing but an API(Application Programming Interface).
+      It Consist of various Classes,interfaces,Exceptions using which java application can send SQL statements to the Database.
+      JDBC is useful for both application developers and JDBC Driver vendors.
+      JDBC is specially used for having connectivity with the Database package using corresponding JDBC Driver.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+2. Importance of JDBC in Java Programming.
+Ans: 
+    1. Database Connectivity in Java Applications
+    -JDBC allows Java applications to communicate with relational databases like MySQL, PostgreSQL, Oracle, and SQL Server.
+    -It provides a unified interface to interact with multiple databases using a common API.
+    
+    2. Platform Independence
+    -JDBC is database-independent—you can switch between databases (e.g., MySQL → Oracle) by only changing the connection URL and driver.
+    -Java’s Write Once, Run Anywhere (WORA) principle extends to JDBC, making it highly portable.
+    
+    3️. Secure and Efficient Data Handling
+    -Prepared Statements prevent SQL Injection attacks by securely handling user inputs.
+    -JDBC efficiently fetches and processes large amounts of data using ResultSet and Batch Processing.
+    
+    4️. Supports Multiple Database Operations
+    -JDBC supports basic and advanced database operations, including:
+     Executing SQL queries (SELECT, INSERT, UPDATE, DELETE)
+     Handling transactions (commit(), rollback())
+     Calling stored procedures and functions
+    
+    5️. Integration with Java EE Frameworks
+    -JDBC is widely used in frameworks like Hibernate, Spring JDBC, MyBatis, and JPA, making it a core component of enterprise applications.
+    
+    6️. Scalability & Performance
+    -JDBC connection pooling (via DataSource) optimizes database access and improves performance.
+    -Reduces overhead by reusing database connections instead of creating new ones for each request.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+3. JDBC Architecture: Driver Manager, Driver, Connection, Statement, and ResultSet.
+Ans: 
+    JDBC Architecture Consist of Two mejor components: JDBC API and JDBC driver types.
+
+     JDBC API is a set of Classes , Interface and Exceptions used For establishing Connection with data source.This Jdbc Api is defined in the java.sql and javax.sqlpackages.we use core JDBC classes and interfaces that belong to java.sql package.
+
+     DriverManager:when java application needs connection to the database it invokes the DriverManager class.The Class then loads the JDBC Drivers in the memory.The DriverManager also attempts to open connection with the desired database.
+
+     Connection: this is an Interface which represents connectivity with the data source. the connection is used for creating the statement instance.
+     
+     Statement: this interfaces is used for representing the SQL statements.There are two specialised statement types: PreparedStatement and CallableStatement.
+
+     the PreparedStatement represents the precompiled SQL Statements.
+     for instance:Select * from student where name = ?. the placeholder represented by ? is used in this type of statement.there are special type setter methods that assign the values to the placeholder before the SQL Query is executed.
+
+     CallableStatement represent the stored procedure.these are similar to PreparedStatement.in this type of statement we assign the methods for the types of output arguments.
+
+     ResultSet: this interface is used to represent the database resultset. after using Select statement,the information obtained from the database can be displayed using ResultSet.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+4. Overview of JDBC Driver Types:
+    -Type 1: JDBC-ODBC Bridge Driver
+    -Type 2: Native-API Driver
+    -Type 3: Network Protocol Driver
+    -Type 4: Thin Driver
+Ans:    
+    type 1 :JDBC-ODBC Bridge Driver
+    This driver translates all the JDBC calls into ODBC(Open Database Connectivity) calls and send them to ODBC driver.Thus Jdbc access is via ODBC driver.The Odbc is a generic Api.in this senario the client database code must be present in the client machine.
+    pros: Using the JDBC-ODBC bridge access to any database is possible.
+    cons:Slowest Driver because the call are sent to ODBC driver and then native database connectivity interface.
+    this type of driver is not suitable for large scale application.
+    using this type of driver the native database must be present on the client machine and the ODBC driver must be installed on the client's machine.
+
+    Type 2:Native Api Driver
+    This driver translates all the JDBC calles into database specific calls.this driver works specifically for perticular database.for example MySql will have native MySql Api.this type of driver directly communicate with the database server.hence some binary code must be present on the client machine.
+    pros: gives better perfomance as compare to type 1 driver because the JDBC call is directly converted to database specific call.
+    cons: the library of required databas must be loaded on the client machine.
+    not useful for the internet.
+    if some modification is made in database the the native API must also be Modified because it is specific to the database.
+
+    type 3:Network Protocol Driver
+    in this type of driver all the JDBC calls aee passes through the network to the middle-ware server.the middleware server then translates the request to the database specific native connectivity interface and then the request is sent to the database server.
+    this driver is a server based driver.this is also known as pure java driver.
+    pros:as it is server based driver there is no need to keep library of required databases on the client machine.
+    the driver is fully written in java hence it is portable and can be used on the internet.
+    the perfomance of this driver can be optimised.
+    for this driver it is possible to accesss multiple database using one driver.
+    cons:the middleware server application needs to be installed and maintained.
+    the record set has to traverse through the backend server.
+
+    type 4:Thin Driver
+    this type of driver converts the JDBC calls to network protocol used by the database directory so that the client application can directly communicate to the database server.this driver is also completely implemented in java.
+    pros:it is plateform independent and can be used on internet.
+    there is no translation layer.
+    the perfomance of this type of driver is good.
+    there is no need to install specific software on the client machine.
+    cons:when this type of driver is used then for each database a specific driver is needed.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+5. Comparison and Usage of Each Driver Type.
+Ans:
+    Driver Type	            Dependency	        Performance	        Platform Independence	Recommended For
+    Type-1 (JDBC-ODBC)	    ODBC driver	        Slow	            No	                    Legacy systems (Deprecated)
+    Type-2 (Native API)	    Native libraries	Medium	            No	                    Applications with specific database APIs
+    Type-3 (Middleware)	    Middleware server	Medium-Fast	        Yes	                    Enterprise applications using multiple databases
+    Type-4 (Thin)	        None (Pure Java)	Fastest	            Yes	                    Web apps, modern applications
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+6. Step-by-Step Process to Establish a JDBC Connection:
+Ans:
+    1. Import the JDBC packages
+    first,import the necccessary java SQL Classes.
+        import java.SQL.*;
+
+    2. Register the JDBC driver
+    Before connecting to the database, load the JDBC driver. The driver is automatically registered when the Class.forName() method is called.
+        try {
+                Class.forName("com.mysql.cj.jdbc.Driver"); // MySQL Driver
+        } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+        }
+
+    For other databases, use the appropriate driver:
+        Oracle: "oracle.jdbc.driver.OracleDriver"
+        PostgreSQL: "org.postgresql.Driver"
+        SQL Server: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+
+    3. Open a connection to the database
+    Use DriverManager.getConnection() to establish a connection.
+        conn = DriverManager.getConnection(url, user, password);
+                
+    Database URL format for different databases:
+        MySQL: jdbc:mysql://hostname:port/databaseName
+        Oracle: jdbc:oracle:thin:@hostname:port:SID
+        PostgreSQL: jdbc:postgresql://hostname:port/databaseName
+        SQL Server: jdbc:sqlserver://hostname:port;databaseName=yourDB
+
+    4. Create a statement
+    A Statement object is used to send SQL queries to the database. 
+      Statement stmt = conn.createStatement(); 
+               
+    Alternatively, use a PreparedStatement for parameterized queries to prevent SQL injection:
+       PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM students WHERE id = ?");
+       pstmt.setInt(1, 101);
+
+    5. Execute SQL queries
+    Use the executeQuery() method for SELECT queries and executeUpdate() for INSERT, UPDATE, DELETE queries.
+        ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+        int rowsInserted = stmt.executeUpdate("INSERT INTO students (id, name) VALUES (101, 'Alice')");
+        System.out.println(rowsInserted + " row(s) inserted.");
+
+    6. Process the result set
+    For SELECT queries, iterate through the ResultSet to fetch data.
+        while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                System.out.println("ID: " + id + ", Name: " + name);
+        }
+    7. Close the connection
+    Always close resources to free up memory and avoid database locks.
+        con.colse();
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+7. Overview of JDBC Statements:
+Ans:
+    Statement: Executes simple SQL queries without parameters.
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+        while (rs.next()) {
+        System.out.println(rs.getInt("id") + " - " + rs.getString("name"));
+        }
+
+    PreparedStatement: Precompiled SQL statements for queries with parameters.
+        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM students WHERE id = ?");
+        pstmt.setInt(1, 101);
+        ResultSet rs = pstmt.executeQuery();
+
+        while (rs.next()) {
+        System.out.println(rs.getInt("id") + " - " + rs.getString("name"));
+        }
+
+    CallableStatement: Used to call stored procedures.
+        CallableStatement cstmt = conn.prepareCall("{call getStudentName(?)}");
+        cstmt.setInt(1, 101); // Passing input parameter
+        ResultSet rs = cstmt.executeQuery();
+
+        while (rs.next()) {
+        System.out.println(rs.getString("name"));
+        }
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+8. Differences between Statement, PreparedStatement, and CallableStatement
+Ans:
+    Statement:
+        Use Case: Simple SQL queries without parameters.
+        Performance: Moderate. Suitable for executing a single query.
+        Syntax: Statement stmt = connection.createStatement();
+        Example: 
+                stmt.executeQuery("SELECT * FROM employees");
+
+    PreparedStatement:
+        Use Case: SQL queries with input parameters. Helps prevent SQL injection.
+        Performance: Better performance for repeated execution of queries. Precompiled SQL.
+        Syntax: PreparedStatement pstmt = connection.prepareStatement(sql);
+        Example:
+                String sql = "SELECT * FROM employees WHERE id = ?";
+                PreparedStatement pstmt = connection.prepareStatement(sql);
+                pstmt.setInt(1, 123);
+                ResultSet rs = pstmt.executeQuery();
+
+    CallableStatement:
+        Use Case: Calling stored procedures in a database.
+        Performance: Good for executing stored procedures.
+        Syntax: CallableStatement cstmt = connection.prepareCall(sql);
+        Example:
+                String sql = "{call getEmployeeInfo(?, ?)}";
+                CallableStatement cstmt = connection.prepareCall(sql);
+                cstmt.setInt(1, 123);
+                cstmt.registerOutParameter(2, Types.VARCHAR);
+                cstmt.execute();
+                String name = cstmt.getString(2);
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+9. Insert: Adding a new record to the database. 
+   Update: Modifying existing records. 
+   Select: Retrieving records from the database. 
+   Delete: Removing records from the database using jdbc
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+10. What is ResultSet in JDBC?
+    In JDBC (Java Database Connectivity), a ResultSet is an interface that represents a table of data obtained from executing a SQL query. It allows you to retrieve and process the results row by row.
+
+    Key Features of ResultSet
+        -Stores Query Results - Holds data retrieved from a SELECT query.
+        -Cursor-Based Navigation - Moves row by row through the result set.
+        -Provides Methods for Data Retrieval - Allows accessing data using column names or indexes.
+    How to Use ResultSet
+        1. Creating a ResultSet
+        A ResultSet is obtained by executing a query using a Statement or PreparedStatement:
+                
+                ResultSet rs = stmt.executeQuery("SELECT id, name, age FROM students");
+                while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+
+                System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+            }
+
+        2. Important Methods of ResultSet
+
+        Method                  Description
+        next()	                Moves the cursor to the next row (returns false if no more rows).
+        previous()	        Moves the cursor to the previous row (only for scrollable ResultSet).
+        first()	                Moves the cursor to the first row.
+        last()	                Moves the cursor to the last row.
+        getInt(columnLabel)	Retrieves an integer value from the specified column.
+        getString(columnLabel)	Retrieves a string value from the specified column.
+        close()	                Closes the ResultSet object.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+11. Navigating through ResultSet (first, last, next, previous).
+    The ResultSet in JDBC provides various methods to navigate through the rows of query results. By default, the ResultSet is forward-only, but you can create a scrollable ResultSet to move in both directions.
+        
+    1. Default Forward-Only Navigation (TYPE_FORWARD_ONLY)
+    By default, the ResultSet can only move forward using .next().
+
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+        while (rs.next()) {  // Moves forward row by row
+        System.out.println("ID: " + rs.getInt("id") + ", Name: " + rs.getString("name"));
+        }
+
+    2. Scrollable ResultSet (TYPE_SCROLL_INSENSITIVE)
+     To move forward and backward, create a scrollable ResultSet:
+
+        Statement stmt = conn.createStatement(
+        ResultSet.TYPE_SCROLL_INSENSITIVE,  // Enables moving in both directions
+        ResultSet.CONCUR_READ_ONLY          // Read-only mode
+        );
+        ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+        
+    Now, you can use different navigation methods:
+    -Move to the First Row
+        rs.first();  
+        System.out.println("First Row: " + rs.getInt("id") + " - " + rs.getString("name"));
+    -Move to the Last Row
+        rs.last();  
+        System.out.println("Last Row: " + rs.getInt("id") + " - " + rs.getString("name"));
+    -Move to the Previous Row
+        if (rs.previous()) {  // Moves back one row
+        System.out.println("Previous Row: " + rs.getInt("id") + " - " + rs.getString("name"));
+        }
+    -Move to a Specific Row (absolute(n))
+        rs.absolute(3);  // Moves to the 3rd row
+        System.out.println("3rd Row: " + rs.getInt("id") + " - " + rs.getString("name"));
+    -Move Relative to Current Position (relative(n))
+        rs.relative(-2);  // Moves 2 rows back
+        System.out.println("Relative Row: " + rs.getInt("id") + " - " + rs.getString("name"));
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+12. What is DatabaseMetaData?
+Ans: 
+   DatabaseMetaData is an interface in JDBC that provides metadata (information) about the database. It helps Java applications retrieve details about the database, tables, columns, supported SQL features, and more.
+   This is useful for understanding the database structure dynamically without hardcoding information.
+   
+   You can retrieve DatabaseMetaData using a Connection object.
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/new", "root", "12345678");
+    DatabaseMetaData dbMetaData = con.getMetaData();
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+13. Importance of Database Metadata in JDBC
+Ans:
+   Database Metadata is critical in JDBC because it allows developers to dynamically obtain information about the database structure, its capabilities, and the supported SQL features without needing to manually hardcode these details. This makes database management more flexible, efficient, and adaptable.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+14. Methods provided by DatabaseMetaData (getDatabaseProductName, getTables,etc).
+Ans:
+    The DatabaseMetaData interface in JDBC provides a variety of methods to retrieve detailed information about the database's structure, capabilities, and features. Here are some of the key methods:
+
+    General Database Information
+        1.getDatabaseProductName(): Retrieves the name of the database product.
+        2.getDatabaseProductVersion(): Retrieves the version of the database product.
+        3.getDriverName(): Retrieves the name of the JDBC driver.
+        4.getDriverVersion(): Retrieves the version of the JDBC driver.
+        5.getUserName(): Retrieves the username used for the database connection.
+
+    Table and Column Information
+        1.getTables(String catalog, String schemaPattern, String tableNamePattern, String[] types): Retrieves a description of the tables available in the database.
+
+        2.getColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern): Retrieves a description of table columns.
+
+        3.getPrimaryKeys(String catalog, String schema, String table): Retrieves a description of the primary key columns for a table.
+
+        4.getExportedKeys(String catalog, String schema, String table): Retrieves a description of the foreign keys that reference a table's primary key.
+
+        5.getImportedKeys(String catalog, String schema, String table): Retrieves a description of the foreign keys in a table.
+    
+    Database Capabilities
+        1.supportsTransactions(): Checks if the database supports transactions.
+        2.supportsBatchUpdates(): Checks if the database supports batch updates.
+        3.supportsStoredProcedures(): Checks if the database supports stored procedures.
+        4.getSQLKeywords(): Retrieves a list of the database's SQL keywords that are not part of the SQL92 standard.
+        5.getNumericFunctions(): Retrieves a list of the database's numerical functions.
+        6.getStringFunctions(): Retrieves a list of the database's string functions.
+        7.getSystemFunctions(): Retrieves a list of the database's system functions.
+        8.getTimeDateFunctions(): Retrieves a list of the database's time and date functions.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+15. What is ResultSetMetaData?
+Ans: 
+    ResultSetMetaData is an interface in Java JDBC that provides methods for retrieving metadata (information) about the columns of a ResultSet. It allows you to gather details about the structure of the data retrieved by executing SQL queries, such as column names, types, sizes, and more.
+    It helps you retrieve descriptive information about the columns in the result set without actually fetching the data itself, which is especially useful when you don't know the structure of the result set in advance (e.g., when querying dynamically generated queries or user-provided tables).
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+16. Importance of ResultSet Metadata in analyzing the structure of query results
+Ans:
+    ResultSetMetaData plays a vital role in analyzing the structure of query results. It provides metadata about the columns in a ResultSet, allowing applications to understand the structure and properties of the data retrieved from the database. Here are some key reasons why ResultSetMetaData is important:
+
+    1. Dynamic Data Processing
+    ResultSetMetaData enables applications to process query results dynamically without hardcoding column names and data types. This is especially useful when dealing with different databases or tables where the structure may vary.
+
+    2. Schema Discovery
+    It allows you to discover the schema of the result set, including column names, types, and sizes. This information can be used to validate the data, ensure consistency, and generate dynamic reports.
+
+    3. Data Validation and Transformation
+    By providing information about the data types and properties of each column, ResultSetMetaData helps in validating and transforming data. For example, you can check if a column is numeric before performing calculations or ensure that string data conforms to expected patterns.
+
+    4. Generic Data Handling
+    ResultSetMetaData facilitates the creation of generic methods for handling data. For instance, you can write a method that exports any result set to a CSV file, regardless of the table structure, by leveraging the metadata.
+
+    5. Improved Interoperability
+    With ResultSetMetaData, you can build applications that interact with multiple databases in a consistent manner. This improves interoperability and reduces the need for database-specific code.
+
+    6. Debugging and Logging
+    Having access to column metadata allows for better debugging and logging. You can log detailed information about the query results, including column names and types, which can be helpful for troubleshooting and audit purposes.
+
+--------------------------------------------------------------------------------------------------------------------------------------- 
+
+17. Methods in ResultSetMetaData (getColumnCount, getColumnName,getColumnType)
+Ans:
+    Here are some of the key methods provided by the ResultSetMetaData interface:
+
+    1.int getColumnCount(): Returns the number of columns in the ResultSet.
+    2.String getColumnName(int column): Returns the name of the specified column.
+    3.String getColumnLabel(int column): Returns the suggested column label for use in printouts and displays.
+    4.String getColumnTypeName(int column): Returns the database-specific type name of the specified column.
+    5.String getSchemaName(int column): Returns the name of the schema of the specified column's table.
+    6.int getColumnType(int column): Returns the SQL type of the specified column.
+    7.int getColumnDisplaySize(int column): Returns the maximum number of characters that can be displayed for the specified column.
+    8.String getColumnClassName(int column): Returns the fully-qualified name of the Java class whose instances are created if the method ResultSet.getObject is called to retrieve a value from the specified column.
+
+18. Introduction to Java Swing for GUI development.
+Ans:
+    Java Swing is a part of Java Foundation Classes (JFC) and is used to create Graphical User Interfaces (GUIs) in Java applications. It provides a rich set of components like buttons, text fields, tables, and more, allowing developers to build interactive desktop applications.
+
+    Key Features of Java Swing:
+    -Lightweight – Swing components are not dependent on native OS components, making them platform-independent.
+    -Rich Set of Components – Includes labels, buttons, text fields, tables, trees, and more.
+    -Pluggable Look and Feel – Allows customization of UI appearance.
+    -Event-Driven Programming – Uses listeners to handle user interactions.
+    -MVC Architecture – Separates data (Model), UI (View), and behavior (Controller) for better maintainability.
+    
+    Basic Swing Components
+    -JFrame – Main window of the application.
+    -JPanel – A container for organizing components.
+    -JLabel – Displays text or images.
+    -JButton – Clickable button.
+    -JTextField – Allows user input.
+    -JTextArea – Multi-line text input.
+    -JCheckBox, JRadioButton – For selection options.
+    -JComboBox – Drop-down list.
+    -JTable – Displays tabular data.
+
+19. How to integrate Swing components with JDBC for CRUD operations
+Ans:
+    Integrating Java Swing with JDBC (Java Database Connectivity) allows you to create GUI-based applications that interact with a database. This is useful for applications that require data storage, retrieval, updates, and deletion.
+
+    Steps to Integrate Swing with JDBC
+    -Create a Database – Set up a table in MySQL (or another database).
+    -Establish JDBC Connection – Connect Java to the database.
+    -Build the Swing GUI – Design the interface for user interaction.
+    -Implement CRUD Operations – Allow users to Create, Read, Update, and Delete records.
+
+20. What is a CallableStatement?
+Ans:
+    CallableStatement is an interface in JDBC used to execute stored procedures in a database. It extends the PreparedStatement interface and allows Java applications to call stored procedures that are defined in the database.
+    Syntax:
+        CallableStatement cs = connection.prepareCall("{CALL procedure_name(?, ?, ?)}");
+        - {CALL procedure_name(?, ?, ?)} – Calls a stored procedure with placeholders for parameters.
+        - ? – Represents parameters (can be IN, OUT, or INOUT).
+
+21. How to call stored procedures using CallableStatement in JDBC
+Ans:
+    Steps to Call a Stored Procedure Using CallableStatement
+    - Create a stored procedure in the database.
+        DELIMITER //
+        CREATE PROCEDURE getStudentName(IN student_id INT, OUT student_name VARCHAR(100))
+        BEGIN
+            SELECT name INTO student_name FROM students WHERE id = student_id;
+        END //
+        DELIMITER ;
+
+    - Establish a connection to the database using JDBC.
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb", "root", "password");
+
+    - Prepare and execute the CallableStatement.
+        CallableStatement cs = conn.prepareCall("{CALL getStudentName(?, ?)}");
+        
+    - Handle input (IN), output (OUT), and input-output (INOUT) parameters.
+        cs.setInt(1, 1);
+        cs.registerOutParameter(2, Types.VARCHAR);
+        cs.execute();
+
+    - Retrieve and display results.
+            String studentName = cs.getString(2);
+            System.out.println("Student Name: " + studentName);
+
+22. Working with IN and OUT parameters in stored procedures
+Ans:
+    Stored procedures allow us to pass parameters to execute specific operations. In JDBC, we use CallableStatement to call stored procedures with IN, OUT, and INOUT parameters.
+
+    IN Parameter
+    Used to pass a value from Java to the stored procedure.
+    Cannot be modified inside the procedure.
+
+    OUT Parameter
+    Used to return a value from the stored procedure to Java.
+    Must be registered before execution.
+
+    Example: 
+        DELIMITER //
+        CREATE PROCEDURE getStudentName(IN student_id INT, OUT student_name VARCHAR(100))
+        BEGIN
+            SELECT name INTO student_name FROM students WHERE id = student_id;
+        END //
+        DELIMITER ;
+
+    Call The procedure:
+            CallableStatement cs = conn.prepareCall("{CALL getStudentName(?, ?)}");
+            cs.setInt(1, 1);  // Fetch student with ID = 1
+            cs.registerOutParameter(2, Types.VARCHAR);
+            cs.execute();
+    
+    INOUT Parameter
+    Used to send a value and get a modified value.
+    Example:
+        DELIMITER //
+        CREATE PROCEDURE updateStudentAge(INOUT student_id INT, IN new_age INT)
+        BEGIN
+            UPDATE students SET age = new_age WHERE id = student_id;
+            SET student_id = student_id + 100; -- Modifying the ID (Example)
+        END //
+        DELIMITER ;
+    
+    Call The Procedure:
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb", "root", "password");
+            CallableStatement cs = conn.prepareCall("{CALL updateStudentAge(?, ?)}");
+            cs.setInt(1, 1); // Student ID
+            cs.registerOutParameter(1, Types.INTEGER); // Register INOUT parameter
+            cs.setInt(2, 25); // New age
+            cs.execute();
