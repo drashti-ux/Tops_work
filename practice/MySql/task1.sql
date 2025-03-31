@@ -1,0 +1,10 @@
+create database practice;
+use practice;
+create table category(category_name varchar(50),category_id int primary key);
+insert into category values("groserry",101),("beauty",102),("electronics",103),("hurbal",104);
+select * from category;
+create table product (product_name varchar(50),category_id int, foreign key(category_id) references category(category_id),price int);
+insert into product values("rice",101,200),("shampoos",102,100),("Wheat and Flour",101,250),("samrtphones",103,10000),("mack_up",102,500),("laptops",103,50000),("wires",103,700);
+select * from product;
+select category_name,category.category_id,product_name,price from category inner join product on category.category_id = product.category_id;
+-- select category_name,count(product_name) from category left join product on category.category_id = product.category_id group by category.category_id;

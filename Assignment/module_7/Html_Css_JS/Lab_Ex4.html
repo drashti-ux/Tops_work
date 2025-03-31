@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <style>
+        nav ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+   background-color: rgb(77, 4, 77);
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: white;
+        padding: 10px 25px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    nav ul li a:hover {
+        background-color: #575757;
+        color: #fff;
+    }
+    
+
+    /* Styling form inputs */
+    input {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Change border color when input is focused */
+    input:focus {
+        border: 2px solid red;
+        outline: none;
+    }
+
+    /* Button styling */
+    button {
+        padding: 10px 20px;
+        background-color: #a7e4a9;
+        color:black;
+        border: 2px solid #37763c;
+        cursor: pointer;
+    }
+
+    button:hover {
+        color:aliceblue;
+        background-color: #37763c;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <form action="#">
+        <input type="text" placeholder="Enter your name">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

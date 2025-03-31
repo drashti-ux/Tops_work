@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(){
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var addd = Number(n1)+Number(n2);
+            document.getElementById("result").innerHTML= "result="+addd;
+        }
+        function mul(){
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var mull = Number(n1)*Number(n2);
+            document.getElementById("result").innerHTML="result="+mull;
+        }
+        function div(){
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var divv =Number(n1)/Number(n2);
+            document.getElementById("result").innerHTML="result="+divv;
+        }
+        function sub(){
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var subb = Number(n1)-Number(n2);
+            document.getElementById("result").innerHTML="result="+subb;
+        }
+    </script>
+</head>
+<body>
+    <input type ="text" id ="num1" placeholder="Enter Number">
+    <input type ="text" id ="num2" placeholder="Enter Number">
+    <span id="result">Result: </span>
+    <br>
+    <button onclick="add()">Addition</button>
+    <button onclick="sub()">Substraction</button>
+    <button onclick="mul()">multiplication</button>
+    <button onclick="div()">division</button>
+</body>
+</html>

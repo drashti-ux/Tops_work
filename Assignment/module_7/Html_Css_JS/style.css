@@ -1,0 +1,7 @@
+.heading{
+    text-align:center;
+    color:aliceblue;
+    background-color: rgb(201, 129, 61);
+    border: 2px solid rgb(128, 66, 12);
+    border-radius: 5px;
+}
