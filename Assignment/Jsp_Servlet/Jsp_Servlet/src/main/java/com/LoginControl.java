@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginControl extends HttpServlet{
@@ -15,10 +17,15 @@ public class LoginControl extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = req.getParameter("name");
 		String pass = req.getParameter("password");
-		
+		String remember = req.getParameter("remember");
 		if(name.equalsIgnoreCase("drashti") && pass.equalsIgnoreCase("12345678")) {
-			req.setAttribute("name", name);
-			req.setAttribute("pass", pass);
+			 HttpSession session = req.getSession();
+	         session.setAttribute("username", name);
+	         if ("true".equals(remember)) {
+	                Cookie userCookie = new Cookie("username", name);
+	                userCookie.setMaxAge(60 * 60 * 24 * 7); // 7 days
+	                resp.addCookie(userCookie);
+	            }
 			req.getRequestDispatcher("/loggedIn").forward(req, resp);
 		}else {
 			resp.setContentType("text/html");

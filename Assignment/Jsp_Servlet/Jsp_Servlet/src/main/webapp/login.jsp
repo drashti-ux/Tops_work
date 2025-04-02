@@ -23,6 +23,7 @@
 	<span class="text-danger">${passErr}</span>
 	</div>
 	<div class="form-group mt-2">
+	 <input type="checkbox" name="remember" value="true">Remember Me<br>
 	<input type="submit" value="login" class="btn btn-primary">
 	<input type="reset" value="reset" class="btn btn-warning">
 	</div>
