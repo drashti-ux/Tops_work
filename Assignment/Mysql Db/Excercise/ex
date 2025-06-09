@@ -1,0 +1,32 @@
+create database excercise;
+use excercise;
+
+create table user(user_id int primary key auto_increment,user_name varchar(20),email varchar(20),password varbinary(255),created_at timestamp default current_timestamp);
+insert into user (user_name,email,password) values("riddhi","riddhi@gmail.com",aes_encrypt("riddhi","rid345")),
+("avi","avi@gmail.com",aes_encrypt("avi","avi123")),
+("prachi","prachi@gmail.com",aes_encrypt("prachi","4526")),
+("riya","riya@gmail.com",aes_encrypt("riya","ri@123")),
+("parthiv","parthiv@gmail.com",aes_encrypt("parth","parth123"));
+
+select * from item;
+
+create table product(product_id int primary key auto_increment,product_name varchar(30),price decimal(10,2),stock int);
+insert into product values(0,"laptop",60000.00,5),
+(0,"mouce",1000,10),(0,"keyboard",1400,9),(0,"charger",3000,7),(0,"speaker",10000,8),(0,"headphones",4000,15),(0,"monitor",30000,12);
+
+create table orders(order_id int primary key auto_increment, user_id int,foreign key(user_id) references user(user_id),orderdate date,location point not null, SPATIAL INDEX(location));
+insert into orders values(0,4,"2025-02-20",ST_GeomFromText('POINT(72 23)')),(0,3,"2024-12-20",ST_GeomFromText('POINT(88 22)')),(0,3,"2025-01-14",ST_GeomFromText('POINT(24 26)')),(0,6,"2024-09-28",ST_GeomFromText('POINT(14 22)')),
+(0,2,"2024-11-26",St_GeomFromText('POINT(26 85)')),(0,3,"2025-01-01",St_GeomFromText('POINT(41 95)')),(0,5,"2024-12-03",ST_GeomFromText('POINT(16 75)')),(0,6,"2024-11-11",ST_GeomFromText('POINT(56 66)'));
+
+create table item(item_id int primary key auto_increment,order_id int,foreign key(order_id) references orders(order_id),product_id int,foreign key(product_id) references product(product_id),quentity int,order_amount decimal(10,2));
+insert into item (order_id,product_id,quentity) values(2,1,4),(1,4,3),(4,2,6),(4,3,3),(1,4,2),(3,2,2),(6,4,1),(7,1,1),(5,3,1),(4,1,1);
+update item as i join product as p on p.product_id=i.product_id set i.order_amount= i.quentity*p.price;
+
+use excercise;
+
+select u.user_name,count((i.product_id)) from user u join orders o on u.user_id = o.user_id join item i on o.order_id = i.order_id where o.orderdate >= current_date() - interval 30 day group by o.user_id having count(i.product_id)>3  ;
+
+select p.product_name , max(i.quentity) from product p inner join item i on p.product_id = i.product_id group by i.product_id order by max(i.quentity) desc limit 3 ;
+select u.user_id,u.user_name,sum(i.order_amount) as total_spent from user u left join orders o on u.user_id = o.user_id left join item i on o.order_id = i.order_id group by u.user_id;
+select concat(product_name," - ", price) as product_menu from product ;
+select u.user_name,p.product_name,i.quentity from orders o left join user u on o.user_id = u.user_id inner join item i on o.order_id = i.order_id inner join product p on i.product_id = p.product_id;
